@@ -63,23 +63,24 @@ describe Airport do
 # Be careful of the weather, it could be stormy!
 # Check when all the planes have landed that they have the right status "landed"
 # Once all the planes are in the air again, check that they have the status of flying!
-describe "The gand finale (last spec)" do
-  it 'all planes can land and all planes can take off' do
-    pl1,pl2,pl3,pl4,pl5,pl6 = Plane.new,Plane.new,Plane.new,Plane.new,Plane.new,Plane.new
-    planes = [pl1,pl2,pl3,pl4,pl5,pl6]
-    airport3 = Airport.new(6)
-    airport3.permission_land_all(weather.check_what_weather[1],planes)
-    planes.each{ |plane| 
-      expect(plane.status).to eq("landed")
-    }
-    expect(airport3.planes_count).to eq(6)
-    airport3.permission_take_off(weather.check_what_weather[1])
-    planes.each{ |plane| 
-      expect(plane.status).to eq("flying")
-    }
-    expect(airport3.planes_count).to eq(0)
+  describe "The gand finale (last spec)" do
+    it 'all planes can land and all planes can take off' do
+      pl1,pl2,pl3,pl4,pl5,pl6 = Plane.new,Plane.new,Plane.new,Plane.new,Plane.new,Plane.new
+      planes = [pl1,pl2,pl3,pl4,pl5,pl6]
+      airport3 = Airport.new(6)
+      airport3.permission_land_all(weather.check_what_weather[1],planes)
+      planes.each{ |plane| 
+        expect(plane.status).to eq("landed")
+      }
+      expect(airport3.planes_count).to eq(6)
+      airport3.permission_take_off(weather.check_what_weather[1])
+      planes.each{ |plane| 
+        expect(plane.status).to eq("flying")
+      }
+      expect(airport3.planes_count).to eq(0)
+    end
   end
 end
-  end
+
 end
  

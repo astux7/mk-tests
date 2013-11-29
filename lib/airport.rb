@@ -18,7 +18,7 @@ class Airport
   end
 
   def planes
-    @bikes ||= []
+    @planes ||= []
   end
 #used to count capacity
   def planes_count
@@ -39,15 +39,11 @@ class Airport
   end
 
   def release(plane = nil)
-    if plane != nil
-      plane.takes_off
-      planes.delete(plane)
-    else
+    planes << plane if plane != nil
       planes.dup.each{|plane| 
         plane.takes_off
         planes.delete(plane)
       }
-    end
   end 
 
   def full?
