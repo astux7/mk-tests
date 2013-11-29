@@ -6,10 +6,10 @@ class Plane
 
   def status
     return "flying" if @flying
-    return "landed" 
+    "landed" 
   end
 
-  def flying?
+  def flying
       @flying
   end
 
@@ -19,6 +19,7 @@ class Plane
 
   def landed
     @flying = false
+    status
   end
 
   def fixed
@@ -32,6 +33,7 @@ class Plane
 
   def takes_off
     @flying = true
+    status
   end
 
 end
