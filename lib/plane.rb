@@ -13,10 +13,10 @@ class Plane
       @flying
   end
 
-  def break
+  def broken
     @flying = false
   end
-  
+
   def landed
     @flying = false
   end

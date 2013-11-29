@@ -28,29 +28,42 @@ class Airport
   def park(plane = nil)
     return false if plane == nil
     raise "There is no more parking place for planes" if full?
+    plane.landed
     planes << plane
   end 
 
   def park_all(planes = nil)
-    planes.dup.each do |plane|
+    planes.each do |plane|
       park(plane)
     end
   end
 
   def release(plane = nil)
-    planes.delete(plane) if plane != nil
-    planes.delete(plane.last) if plane == nil
+    if plane != nil
+      plane.takes_off
+      planes.delete(plane)
+    else
+      planes.dup.each{|plane| 
+        plane.takes_off
+        planes.delete(plane)
+      }
+    end
   end 
 
   def full?
     planes_count == capacity
   end
 
-  def flying_planes
-    planes.reject { |plane| plane.landed}
+  def permission_take_off(weather_now)
+     release unless weather_now == "stormy"
   end
 
-  def landed_planes
-    planes.select{ |plane| plane.takes_off}
+  def permission_land(weather_now,plane)
+     park(plane) if weather_now == "sunny"
   end
+
+  def permission_land_all(weather_now,planes)
+     park_all(planes) if weather_now == "sunny"
+  end
+
 end

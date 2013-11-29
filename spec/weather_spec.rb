@@ -6,18 +6,22 @@
     # This will require stubbing to stop the random return of the weather.
     # If the airport has a weather condition of stormy,
     # the plane can not land, and must not be in the airport
-require_relative '../lib/weather'
-require_relative '../lib/plane'
 class Conditions; include Weather; end
 
 describe Weather do
-  let(:now){Conditions.new}
-  let(:plane){Plane.new}
+  let(:weather){Conditions.new}
     context 'weather conditions' do
-      it 'a plane cannot take off when there is a storm brewing' do 
+      it 'now should be stormy' do 
+        expect(weather.bad_conditions).to eq("stormy")
       end
-      
-      it 'a plane cannot land in the middle of a storm' do
+      it 'now should be sunny' do 
+        expect(weather.good_conditions).to eq("sunny")
+      end
+      it 'now should be sunny or stormy' do
+        weather.all_conditions.should satisfy{|s| ['sunny', 'stormy'].include?(s)}
+      end
+      it ' class can check if good conditions to fly' do
+        (weather.check_weather_good?).should satisfy{|s| [true,false].include?(s)}
       end
   end
 end
