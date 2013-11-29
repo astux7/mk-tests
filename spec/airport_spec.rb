@@ -14,15 +14,15 @@ describe Airport do
   
   context 'taking off and landing' do
     it 'a plane can land' do
-      plane.landed
       airport.park(plane)
       expect(airport.planes_count).to eq(1)
+      expect(plane.status).to eq("landed")
     end
     
     it 'a plane can take off' do
-      plane.take_off
       airport.release(plane)
       expect(airport.planes_count).to eq(0)
+      expect(plane.status).to eq("flying")
     end
   end
   

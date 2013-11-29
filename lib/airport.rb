@@ -14,7 +14,7 @@ class Airport
     @capacity ||= DEFAULT_CAPACITY
   end
 
-  def capaity=(value)    
+  def capacity=(value)    
       @capacity = value.to_i > 0 ? value : DEFAULT_CAPACITY
   end
 
