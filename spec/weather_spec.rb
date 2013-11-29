@@ -18,10 +18,10 @@ describe Weather do
         expect(weather.good_conditions).to eq("sunny")
       end
       it 'now should be sunny or stormy' do
-        weather.all_conditions.should satisfy{|s| ['sunny', 'stormy'].include?(s)}
+        weather.all_conditions.should satisfy{|s| ['stormy', 'sunny'].include?(s)}
       end
       it ' class can check if good conditions to fly' do
-        (weather.check_weather_good?).should satisfy{|s| [true,false].include?(s)}
+        (weather.check_weather_good?("sunny")).should satisfy{|s| [true,false].include?(s)}
       end
   end
 end

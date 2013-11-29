@@ -10,7 +10,7 @@ require_relative '../lib/plane'
 describe Airport do
   let(:airport) { Airport.new(3) }
   let(:plane) {Plane.new}
-  let(:weather){double(:weather,:"check_what_weather"=>["stormy","sunny"])}
+  let(:weather){double(:weather,:"bad_conditions"=>"stormy",:"good_conditions"=>"sunny")}
   
   context 'taking off and landing' do
     it 'a plane can land' do
@@ -20,7 +20,7 @@ describe Airport do
     end
     
     it 'a plane can take off' do
-      plane.takes_off
+      plane.take_off
       airport.release(plane)
       expect(airport.planes_count).to eq(0)
     end
@@ -43,16 +43,18 @@ describe Airport do
     context 'weather conditions' do
       it 'a plane cannot take off when there is a storm brewing' do
         airport.park(plane)
-        airport.permission_take_off(weather.check_what_weather[0])
+        airport.permission_take_off(plane,weather.bad_conditions)
         expect(airport.planes_count).to eq(1)
       end
       
       it 'a plane cannot land in the middle of a storm' do
         airport.park(plane)
-        airport.permission_take_off(weather.check_what_weather[1])
+        expect(airport.planes_count).to eq(1)
+        airport.permission_take_off(plane,weather.good_conditions)
         expect(airport.planes_count).to eq(0)
-        aiport2=Airport.new(2)
-        aiport2.permission_land(weather.check_what_weather[1],plane)
+        aiport2 = Airport.new(2)
+        aiport2.park(Plane.new)
+        aiport2.permission_land(plane,weather.bad_conditions)
         expect(aiport2.planes_count).to eq(1)
       end
     end
@@ -68,12 +70,12 @@ describe Airport do
       pl1,pl2,pl3,pl4,pl5,pl6 = Plane.new,Plane.new,Plane.new,Plane.new,Plane.new,Plane.new
       planes = [pl1,pl2,pl3,pl4,pl5,pl6]
       airport3 = Airport.new(6)
-      airport3.permission_land_all(weather.check_what_weather[1],planes)
+      airport3.permission_land_all(planes,weather.good_conditions)
       planes.each{ |plane| 
         expect(plane.status).to eq("landed")
       }
       expect(airport3.planes_count).to eq(6)
-      airport3.permission_take_off(weather.check_what_weather[1])
+      airport3.permission_take_off_all(weather.good_conditions)
       planes.each{ |plane| 
         expect(plane.status).to eq("flying")
       }

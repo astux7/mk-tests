@@ -17,16 +17,15 @@ describe Plane do
   end
   
   it 'has a flying status when in the air' do
-    plane.flying
-    expect(plane.status).to eq("flying")
+    expect(plane.flying).to eq("flying")
   end
   
   it 'can take off' do
-    expect(plane.takes_off).to eq("flying")
+    expect(plane.take_off).to eq("flying")
   end
   
   it 'changes its status to flying after taking of' do
-    plane.takes_off
+    plane.take_off
     expect(plane.status).to eq("flying")
   end
 

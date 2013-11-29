@@ -10,11 +10,7 @@ class Plane
   end
 
   def flying
-      @flying
-  end
-
-  def broken
-    @flying = false
+      status
   end
 
   def landed
@@ -22,16 +18,7 @@ class Plane
     status
   end
 
-  def fixed
-    @flying = true
-  end
-
-  def in_the_air
-    fixed
-    takes_off
-  end
-
-  def takes_off
+  def take_off
     @flying = true
     status
   end

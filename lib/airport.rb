@@ -1,4 +1,5 @@
 require_relative './weather'
+
 class Airport
 	include Weather
 
@@ -13,7 +14,7 @@ class Airport
     @capacity ||= DEFAULT_CAPACITY
   end
 
-  def capacity=(value)    
+  def capaity=(value)    
       @capacity = value.to_i > 0 ? value : DEFAULT_CAPACITY
   end
 
@@ -25,41 +26,45 @@ class Airport
     planes.count
   end
  
-  def park(plane = nil)
-    return false if plane == nil
+  def park(plane)
     raise "There is no more parking place for planes" if full?
     plane.landed
     planes << plane
   end 
 
-  def park_all(planes = nil)
-    planes.each do |plane|
-      park(plane)
-    end
+  def park_all(planes)
+    planes.each {|plane| park(plane)}
   end
 
-  def release(plane = nil)
-    planes << plane if plane != nil
-      planes.dup.each{|plane| 
-        plane.takes_off
-        planes.delete(plane)
-      }
+  def release_all
+    planes.dup.each{|plane| 
+       release(plane)
+    }
   end 
+  
+  def release(plane)
+    plane.take_off
+    planes.delete(plane)
+  end
 
   def full?
     planes_count == capacity
   end
 
-  def permission_take_off(weather_now)
-     release unless weather_now == "stormy"
+  def permission_take_off_all(weather_now)
+     release_all if self.check_weather_good?(weather_now)
   end
 
-  def permission_land(weather_now,plane)
-     park(plane) if weather_now == "sunny"
+  def permission_take_off(plane,weather_now)
+     release(plane) if self.check_weather_good?(weather_now) 
   end
 
-  def permission_land_all(weather_now,planes)
-     park_all(planes) if weather_now == "sunny"
+  def permission_land(plane,weather_now)
+     park(plane) if self.check_weather_good?(weather_now)
+  end
+
+  def permission_land_all(planes,weather_now)
+     park_all(planes) if self.check_weather_good?(weather_now)
   end
 
 end
