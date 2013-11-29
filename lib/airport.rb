@@ -1,12 +1,12 @@
 require_relative './weather'
 
 class Airport
-	include Weather
+  include Weather
 
   DEFAULT_CAPACITY = 10
 
-	def initialize(capacity = nil)
-		@capacity = capacity
+  def initialize(capacity = nil)
+    @capacity = capacity
     @planes = []
   end
 
