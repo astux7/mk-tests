@@ -26,7 +26,8 @@ class Plane
   end
 
   def in_the_air
-    fixed and takes_off
+    fixed
+    takes_off
   end
 
   def takes_off
