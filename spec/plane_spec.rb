@@ -17,7 +17,7 @@ describe Plane do
   end
   
   it 'has a flying status when in the air' do
-    plane.in_the_air
+    plane.takes_off
     expect(plane.flying?).to be_true
   end
   
