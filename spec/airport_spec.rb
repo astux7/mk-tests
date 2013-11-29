@@ -8,18 +8,27 @@ require_relative '../lib/plane'
 #
 # If the airport is full then no planes can land
 describe Airport do
-  let(:airport) { Airport.new }
+  let(:airport) { Airport.new(3) }
+  let(:plane) {Plane.new}
   
   context 'taking off and landing' do
     it 'a plane can land' do
+      plane.landed
+      airport.park(plane)
+      expect(airport.planes_count).to eq(1)
     end
     
     it 'a plane can take off' do
+      plane.takes_off
+      airport.release(plane)
+      expect(airport.planes_count).to eq(0)
     end
   end
   
   context 'traffic control' do
     it 'a plane cannot land if the airport is full' do
+      3.times {airport.park(Plane.new)}
+      expect(lambda { airport.park(plane) }).to raise_error(RuntimeError)
     end
     
     # Include a weather condition using a module.
