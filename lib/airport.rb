@@ -51,20 +51,20 @@ class Airport
     planes_count == capacity
   end
 
-  def permission_take_off_all(weather_now)
-     release_all if self.check_weather_good?(weather_now)
+  def permission_take_off_all
+     release_all if self.weather_now == :sunny
   end
 
-  def permission_take_off(plane,weather_now)
-     release(plane) if self.check_weather_good?(weather_now) 
+  def permission_take_off(plane)
+     release(plane) if self.weather_now == :sunny 
   end
 
-  def permission_land(plane,weather_now)
-     park(plane) if self.check_weather_good?(weather_now)
+  def permission_land(plane)
+     park(plane) if self.weather_now == :sunny
   end
 
-  def permission_land_all(planes,weather_now)
-     park_all(planes) if self.check_weather_good?(weather_now)
+  def permission_land_all(planes)
+     park_all(planes) if self.weather_now == :sunny
   end
 
 end

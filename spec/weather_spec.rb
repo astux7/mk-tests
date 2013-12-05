@@ -11,17 +11,8 @@ class Conditions; include Weather; end
 describe Weather do
   let(:weather){Conditions.new}
     context 'weather conditions' do
-      it 'now should be stormy' do 
-        expect(weather.bad_conditions).to eq("stormy")
-      end
-      it 'now should be sunny' do 
-        expect(weather.good_conditions).to eq("sunny")
-      end
-      it 'now should be sunny or stormy' do
-        weather.all_conditions.should satisfy{|s| ['stormy', 'sunny'].include?(s)}
-      end
-      it ' class can check if good conditions to fly' do
-        (weather.check_weather_good?("sunny")).should satisfy{|s| [true,false].include?(s)}
+      it 'now should be stormy or sunny' do 
+        weather.weather_now.should satisfy{|s| [:stormy, :sunny].include?(s)}
       end
   end
 end
