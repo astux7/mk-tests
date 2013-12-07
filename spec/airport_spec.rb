@@ -20,6 +20,7 @@ describe Airport do
     end
     
     it 'a plane can take off' do
+      airport.park(plane)
       airport.release(plane)
       expect(airport.planes_count).to eq(0)
       expect(plane.status).to eq("flying")
@@ -67,6 +68,7 @@ describe Airport do
 # Once all the planes are in the air again, check that they have the status of flying!
   describe "The gand finale (last spec)" do
     it 'all planes can land and all planes can take off' do
+      airport.stub(:weather_now).and_return(:sunny)
       pl1,pl2,pl3,pl4,pl5,pl6 = Plane.new,Plane.new,Plane.new,Plane.new,Plane.new,Plane.new
       planes = [pl1,pl2,pl3,pl4,pl5,pl6]
       airport3 = Airport.new(6)
@@ -79,7 +81,6 @@ describe Airport do
       planes.each{ |plane| 
        expect(plane.status).to eq("flying") if plane.take_off
       }
-    #  expect(airport3.planes_count).to eq(0)
     end
   end
 end

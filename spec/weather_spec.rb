@@ -14,5 +14,11 @@ describe Weather do
       it 'now should be stormy or sunny' do 
         weather.weather_now.should satisfy{|s| [:stormy, :sunny].include?(s)}
       end
+
+      it "should be sunny 75% of the time" do
+        weathers = Array.new(1000)  { weather.weather_now }
+        expect(weathers.count {|w| w == :sunny}).to be_within(700).of(750)
+      end
+
   end
 end
