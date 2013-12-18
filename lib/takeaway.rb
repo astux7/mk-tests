@@ -48,6 +48,7 @@ class Takeaway
 
   def move_to_orders(order)
     @orders << order
+    order.status = "cooking"
     # order.instance_methods
   end
 
