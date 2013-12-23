@@ -3,10 +3,10 @@ require_relative 'pixel'
 class Image
 
   attr_reader :m, :n
-  attr_accessor :pixels, :color
+  attr_accessor :pixels, :color, :imgs
 
   def initialize(m, n, color = 'O')
-    @m, @n =   m, n
+    @m, @n = m, n
     raise "Image must be in range 1 <= M,N <= 250 px" if !check_image_range?
     @pixels = []
     create_image(color)
@@ -18,20 +18,22 @@ class Image
     }
   end
 
+  def draws_image_lines(coord, color)
+     coord.each{|line|
+       color_the_pixel(line[0],line[1],color)
+     }
+  end
+
   def pixels_count
     @pixels.count
   end
 
   def create_image(color)
-    xxx,yyy=1,1
-    1.upto(@m) {
-      1.upto(@n){
-        @pixels << Pixel.new(xxx,yyy,color)
-        yyy+=1
-      }
-      yyy = 1
-      xxx += 1
-    }
+    for i in 1..@m
+      for j in 1..@n
+        @pixels << Pixel.new(i,j,color)
+      end
+    end
     @pixels
   end
 
@@ -48,7 +50,6 @@ class Image
   def clear(color = 'C')
     @pixels = @pixels.each{|px| px.color = color}
   end
-
 
   def inspect
    format_string, xx ,yy= "", 0, 0

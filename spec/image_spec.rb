@@ -26,4 +26,16 @@ describe Image do
     expect(img).to receive(:print).with("OOOOO\\nOOOTO\\nOOOOO\\nOOOOO")
     img.inspect
   end
+  it 'should color the line of pixels [2,3][2,4][2,5] color M' do
+    coord = [[2,3],[2,4],[2,5]]
+    img.draws_image_lines(coord,'M')
+    expect(img).to receive(:print).with("OOOOO\\nOOMMM\\nOOOOO\\nOOOOO")
+    img.inspect
+  end
+  it 'should color the line of pixels [1,3][2,3][3,3] color M' do
+    coord = [[1,3],[2,3],[3,3]]
+    img.draws_image_lines(coord,'M')
+    expect(img).to receive(:print).with("OOMOO\\nOOMOO\\nOOMOO\\nOOOOO")
+    img.inspect
+  end
 end	
