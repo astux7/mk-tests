@@ -8,29 +8,30 @@ class Image
   def initialize(m, n, color = 'O')
     @m, @n =   m, n
     raise "Image must be in range 1 <= M,N <= 250 px" if !check_image_range?
-    @pixels = Array.new(@m,Array.new(@n,''))
+    @pixels = []
     create_image(color)
   end
 
-
-  
+  def color_the_pixel(x,y,color)
+    @pixels.each{|px| 
+       px.color = color if px.x == x && px.y == y
+    }
+  end
 
   def pixels_count
-    counter = 0
-    for x in 0..@m-1
-      for y in 0..@n-1
-        counter +=1
-      end
-    end
-    counter
+    @pixels.count
   end
 
   def create_image(color)
-    for x in 0..@m-1
-      for y in 0..@n-1
-        @pixels[x][y] = Pixel.new(x,y,color)
-      end
-    end
+    xxx,yyy=1,1
+    1.upto(@m) {
+      1.upto(@n){
+        @pixels << Pixel.new(xxx,yyy,color)
+        yyy+=1
+      }
+      yyy = 1
+      xxx += 1
+    }
     @pixels
   end
 
@@ -45,22 +46,16 @@ class Image
   end
   
   def clear(color = 'C')
-    for x in 0..@m-1
-      for y in 0..@n-1
-        @pixels[x][y].color = color
-      end
-    end
-    @pixels
+    @pixels = @pixels.each{|px| px.color = color}
   end
 
+
   def inspect
-   format_string = ""
-    for xx in 0..@m-1
-      for yy in 0..@n-1
-        format_string += @pixels[xx][yy].color
-      end
-      format_string += '\n' 
-    end 
+   format_string, xx ,yy= "", 0, 0
+      @pixels.each{ |px|
+      format_string += px.color 
+      format_string += '\n' if px.y % @n == 0 
+    } 
     print format_string.chomp('\n')
   end
 end

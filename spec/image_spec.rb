@@ -10,7 +10,7 @@ describe Image do
   end
   it 'should clear the image' do
     img.clear
-    expect(img.pixels[1][2].color).to eq('C')
+    expect(img.pixels[2].color).to eq('C')
   end
   it 'should draw the image as created' do
     expect(img).to receive(:print).with("OOOOO\\nOOOOO\\nOOOOO\\nOOOOO")
@@ -19,6 +19,11 @@ describe Image do
   it 'should draw the image after cleaning' do
     img.clear
     expect(img).to receive(:print).with("CCCCC\\nCCCCC\\nCCCCC\\nCCCCC")
+    img.inspect
+  end
+  it 'should color the pixel[2,4] in image with color T' do
+    img.color_the_pixel(2,4,'T')
+    expect(img).to receive(:print).with("OOOOO\\nOOOTO\\nOOOOO\\nOOOOO")
     img.inspect
   end
 end	

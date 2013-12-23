@@ -5,6 +5,5 @@ class Pixel
     @y = y
     @color = color
   end
-  attr_reader :x, :y
-  attr_accessor :color
+  attr_accessor :color,:x, :y
 end
