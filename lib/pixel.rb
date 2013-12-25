@@ -1,9 +1,18 @@
+require_relative 'error_handler'
 
 class Pixel
-  def initialize(x = nil, y = nil, color = nil)
-    @x = x
-    @y = y
-    @color = color
+
+  include ErrorHandler
+
+  attr_reader :x, :y, :color
+
+  def initialize(x = nil, y = nil, color = 'O')
+    @x = check_coordinate(x)
+    @y = check_coordinate(y)
+    @color = check_color(color)
   end
-  attr_accessor :color,:x, :y
+
+  def color=(color)
+  	@color = check_color(color)
+  end
 end

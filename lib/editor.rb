@@ -1,4 +1,37 @@
-module Editor
+require_relative 'error_handler'
+
+class Editor
+
+include ErrorHandler
+
+attr_reader :image
+
+def initialize(image = nil)
+  @image = image
+  editor_constants
+  #interactive_menu
+end
+
+def editor_constants
+  @menu_commands_help = [
+    "\n\nEditor Commands as follow:\n",
+    "> I M N - Create image MxN\n",
+    "> C - Clear the image setting pixels to white (O)\n",
+    "> L X Y C - Colours the pixel (X,Y) with colour C\n",
+    "> V X Y1 Y2 C - Draw a vertical segment of colour C in column X between rows Y1 and Y2\n",
+    "> H X1 X2 Y C - Draw a horizontal segment of colour C in row Y between columns X1 and X2\n",
+    "> F X Y C - Fill the region R with the colour C. R is defined as: Pixel (X,Y) belongs to R. Any other pixel which is the same colour as (X,Y) and shares a common side with any pixel in R also belongs to this region.\n",
+    "> S - Show the contents of the current image\n",
+    "> R - Clear the console\n",
+    "> X - Terminate the session\n"
+  ]
+
+  @program_phrases = {
+    "p_command" => "\nChoose the command: ",
+    "undef_command" => "\nEditor do not know this command, for help put -h \n ",
+    "bad_coordinate" => "\n Image coordinates are wrong"
+  }
+end
 
 def interactive_menu
   loop do
@@ -9,9 +42,10 @@ end
 def program_menu
   print_out(@menu_commands_help.join("\n"), false)
 end
-#printing to console - inlist means if the phrase belongs to program phrase list
-def print_out(phrases, inlist = true)
-  print inlist ? @program_phrases[phrases] : phrases 
+#printing to console - inlist means if the phrase belongs 
+#to program phrase list
+def print_out(phrases, in_list = true)
+  print in_list ? @program_phrases[phrases] : phrases 
 end
 #output text and get the command
 def menu_option_output
@@ -27,59 +61,59 @@ end
 
 def command_not_exist
   print_out("undef_command") 
-  nil
+  false
 end
 
 def check_command(command)
   return '-h' if command == '-h' 
   return command_exist?(command) ? command.split(' ')[0] : command_not_exist
 end
-
-#def area_color(x,y,new_color)
-#  full_array = []
-  #pixels_arr = @img.select_same_color_pixels(x,y)
-  #pixels_arr.each{|coor|
-   # full_array << @img.get_pixel_neighbors_coord(coor.x,coor.y)
-  #}
-  #p full_array
- # @img.color_pixels_object(full_array.flatten(1).uniq,new_color)
-
-#end
-#!!!!!!!
-def prepare_command(letter, other = [])
-  true
+#prepare the command for image
+def prepare_command(commands )
+  command = commands.split(' ')
+  begin
+    case command[0]
+      when "V", "H"
+        check_arguments_number(command,5)
+        coords = [command[1],command[2],command[3]]
+        if check_if_positive_integers(coords) && check_color(command[4]) 
+          return [command[1],command[2],command[3], command[4]]    
+        end
+      when "F", "L"
+        check_arguments_number(command,4)
+        coords = [command[1],command[2]]
+        if check_if_positive_integers(coords) && check_color(command[3])
+          return [command[1],command[2],command[3]] 
+        end
+      when "I"
+        check_arguments_number(command,3)
+        return [command[1], command[2]] if check_image_range(command[1], command[2]) 
+    end
+  rescue Exception => e  
+    print e.message  
+    return []
+  end
+  return []
 end 
 
 def menu_choice(command)
-  case check_command(command)
+  letter = check_command(command)
+  param = letter ? prepare_command(command) : []
+  case letter
     when "I"
-       if prepare_command("I",command)
-          m = command.split(' ')[1].chomp(' ').to_i
-          n = command.split(' ')[2].chomp(' ').to_i
-          @img.create_image(m,n)
-       end
+      @image.create_image(param[0], param[1]) if !param.empty?
     when "C"
-      @img.clear
+      @image.clear 
     when "L"
-      if prepare_command("L",command)
-        @img.colored_pixel(command.split(' ')[1].to_i,command.split(' ')[2].to_i,command.split(' ')[3])
-      end
+      @image.colored_pixel(param[0], param[1], param[2]) if !param.empty?
     when "V"
-      if prepare_command("V",command)
-          color = command.split(' ')[4]
-         @img.vertical_line(command.split(' ')[1].to_i,command.split(' ')[2].to_i,command.split(' ')[3].to_i, color)
-        # @img.colored_pixels(arry,color)
-      end
+      @image.vertical_line(param[0], param[1], param[2], param[3]) if !param.empty?
     when "H"
-        if prepare_command("H",command)
-         color = command.split(' ')[4]
-         @img.horizontal_line(command.split(' ')[1].to_i,command.split(' ')[2].to_i,command.split(' ')[3].to_i,color)
-        # @img.colored_pixels(arry,color)
-      end
+      @image.horizontal_line(param[0], param[1], param[2], param[3]) if !param.empty?
     when "F"
-        @img.select_area_to_fill(command.split(' ')[1].to_i,command.split(' ')[2].to_i,command.split(' ')[3])
+      @image.select_area_to_fill(param[0],param[1],param[2]) if !param.empty?
     when "S"
-      @img.inspect
+      @image.inspect
     when "R"
       system("clear")
     when "X"
