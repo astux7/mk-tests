@@ -64,6 +64,11 @@ def command_not_exist
   false
 end
 
+def image_defined?
+  raise "First create the image!" if @image.pixels_count < 2
+  true
+end
+
 def check_command(command)
   return '-h' if command == '-h' 
   return command_exist?(command) ? command.split(' ')[0] : command_not_exist
@@ -72,6 +77,7 @@ end
 def prepare_command(commands )
   command = commands.split(' ')
   begin
+    image_defined? if !["I", "X", "R"].include? command[0]
     case command[0]
       when "V", "H"
         check_arguments_number(command,5)
@@ -105,7 +111,7 @@ def menu_choice(command)
     when "C"
       @image.clear 
     when "L"
-      @image.colored_pixel(param[0], param[1], param[2]) if !param.empty?
+     @image.colored_pixel(param[0], param[1], param[2]) if !param.empty?
     when "V"
       @image.vertical_line(param[0], param[1], param[2], param[3]) if !param.empty?
     when "H"

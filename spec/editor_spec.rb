@@ -1,7 +1,7 @@
 require_relative '../lib/editor'
 
 describe Editor do
-  let(:image) {double(:image)}
+  let(:image) {double(:image,:pixels_count => 3)}
   let(:editor) { Editor.new(image) }
   
   it 'should init the editor and terminate it' do
@@ -20,12 +20,18 @@ describe Editor do
     expect(editor.check_command("K 88 9")).to be_false
   end  
 
-  it 'should return the args for method F 3 3 J' do
+  it 'should raise error cause not init the image first for F 3 3 J' do
     expect(editor.prepare_command("F 3 3 J")) .to eq(["3","3","J"])
   end
 
   it 'should return empty array if command missing arguments F 3 3' do
+    editor.prepare_command("I 4 4")
     expect(editor).to receive(:print).with("Arguments missing in Command")
     expect(editor.prepare_command("F 3 3")) .to eq([])
   end
+  it 'should return the args for method F 3 3 J' do
+    editor.prepare_command("I 4 4")
+    expect(editor.prepare_command("F 3 3 J")) .to eq(["3","3","J"])
+  end
+
 end	

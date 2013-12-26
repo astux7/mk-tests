@@ -19,7 +19,7 @@ class Image
   def vertical_line(x1, x2, x3, color)
     x1, x2, x3 = check_coordinate(x1, @m), check_coordinate(x2, @n), check_coordinate(x3, @n)
     x_bigger_y?(x2,x3)
-    coordinates = prepare_vertical_line(x1, x2, x3)
+    coordinates = prepare_vertical_line(x1.to_i, x2.to_i, x3.to_i)
     colored_pixels(coordinates, color)
   end
   #Horizontal coordinates line draw
@@ -32,13 +32,13 @@ class Image
   def horizontal_line(x1, x2, x3, color)
     x1, x2, x3 = check_coordinate(x1, @m), check_coordinate(x2, @m), check_coordinate(x3, @n)
     x_bigger_y?(x1,x2)
-    coordinates = prepare_horizontal_line(x1, x2, x3)
+    coordinates = prepare_horizontal_line(x1.to_i, x2.to_i, x3.to_i)
     colored_pixels(coordinates, color)
   end
   # color single pixel
   def colored_pixel(x, y, color)
     x, y = check_coordinate(x, @n), check_coordinate(y, @m)
-    @pixels.each{|px| px.color = color if px.x == x && px.y == y }
+    @pixels.each{|px| px.color = color if px.x == x.to_i && px.y == y.to_i }
   end
   #color array of pixels
   def colored_pixels(group_pixels, color)
@@ -60,7 +60,7 @@ class Image
   def select_area_to_fill(x, y, color)
     x, y = check_coordinate(x, @n), check_coordinate(y, @m)
     color = check_color(color)
-    full_array = prepare_area_to_fill(x, y)
+    full_array = prepare_area_to_fill(x.to_i, y.to_i)
     colored_pixels_object(full_array, color)
   end
   #select pixels for area
