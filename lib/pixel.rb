@@ -13,6 +13,6 @@ class Pixel
   end
 
   def color=(color)
-  	@color = check_color(color)
+    @color = check_color(color)
   end
 end
