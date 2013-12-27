@@ -2,10 +2,9 @@ require_relative '../lib/pixel'
 
 describe Pixel do
   let(:px) { Pixel.new(1, 2, 'C') }
-
-	it 'should be created' do
-		expect(px.color).to eq('C')
-	end
+  it 'should be created' do
+    expect(px.color).to eq('C')
+  end
 
   it 'can change the color' do
     px.color = 'D'
