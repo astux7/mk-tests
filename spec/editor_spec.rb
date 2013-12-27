@@ -24,18 +24,16 @@ describe Editor do
     expect(editor.prepare_command("F 3 3 J")) .to eq(["3","3","J"])
   end
 
-  it 'should return empty array if command missing arguments F 3 3' do
-    editor.prepare_command("I 4 4")
-    expect(editor).to receive(:print).with("Arguments missing in Command")
-    expect(editor.prepare_command("F 3 3")) .to eq([])
+  it 'should raise the error if command missing arguments i.e. F 3 3' do
+    expect(lambda { editor.prepare_command("F 3 3")}).to raise_error(RuntimeError)
+ 
   end
   it 'should return the args for method F 3 3 J' do
-    editor.prepare_command("I 4 4")
     expect(editor.prepare_command("F 3 3 J")) .to eq(["3","3","J"]) 
   end
 
   it 'should handle the error of bad menu_choice args' do
-    expect(editor).to receive(:print).with("Arguments missing in Command")
+    expect(editor).to receive(:print).with("\nArguments missing in Command\n")
     editor.menu_choice("H 4")
   end
 
@@ -43,4 +41,9 @@ describe Editor do
     expect(editor).to receive(:print).with("\nChoose the command: ")
     editor.print_out("p_command")
   end
-end	
+
+  it 'should prepare the commands parametres ' do
+    expect(editor.prepare_parametres(["H", "1", "3", "1", "P"],5,3)).to eq(["1","3","1", "P"])
+  end
+
+end

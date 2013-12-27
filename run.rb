@@ -1,8 +1,6 @@
-require './lib/image'
 require './lib/editor'
 
-image = Image.new
-editor = Editor.new(image)
+editor = Editor.new
 editor.interactive_menu
 
 

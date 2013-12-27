@@ -1,10 +1,10 @@
 require_relative 'error_handler'
-
+require_relative 'image'
 class Editor
 
 include ErrorHandler
 
-attr_reader :image
+attr_accessor :image
 
 def initialize(image = nil)
   @image = image
@@ -13,23 +13,26 @@ def initialize(image = nil)
 end
 
 def editor_constants
-  @menu_commands_help = [
-    "\n\nEditor Commands as follow:\n",
-    "> I M N - Create image MxN\n",
-    "> C - Clear the image setting pixels to white (O)\n",
-    "> L X Y C - Colours the pixel (X,Y) with colour C\n",
-    "> V X Y1 Y2 C - Draw a vertical segment of colour C in column X between rows Y1 and Y2\n",
-    "> H X1 X2 Y C - Draw a horizontal segment of colour C in row Y between columns X1 and X2\n",
-    "> F X Y C - Fill the region R with the colour C. R is defined as: Pixel (X,Y) belongs to R. Any other pixel which is the same colour as (X,Y) and shares a common side with any pixel in R also belongs to this region.\n",
-    "> S - Show the contents of the current image\n",
-    "> R - Clear the console\n",
-    "> X - Terminate the session\n"
-  ]
-
   @program_phrases = {
+    "menu" => "\n\nEditor Commands as follow:\n
+    > I M N - Create image MxN\n
+    > C - Clear the image setting pixels to white (O)\n
+    > L X Y C - Colours the pixel (X,Y) with colour C\n
+    > V X Y1 Y2 C - Draw a vertical segment of colour C in column X between 
+    rows Y1 and Y2\n
+    > H X1 X2 Y C - Draw a horizontal segment of colour C in row Y between 
+    columns X1 and X2\n
+    > F X Y C - Fill the region R with the colour C. 
+    R is defined as: Pixel (X,Y) belongs to R. 
+    Any other pixel which is the same colour as (X,Y) and 
+    shares a common side with any pixel in R also belongs to this region.\n
+    > S - Show the contents of the current image\n
+    > R - Clear the console\n
+    > X - Terminate the session\n",
     "p_command" => "\nChoose the command: ",
     "undef_command" => "\nEditor do not know this command, for help put -h \n ",
-    "bad_coordinate" => "\n Image coordinates are wrong"
+    "bad_coordinate" => "\n Image coordinates are wrong \n",
+    "img_created" => "\nImage already created! \n"
   }
 end
 
@@ -40,13 +43,12 @@ def interactive_menu
 end
 
 def program_menu
-  print_out(@menu_commands_help.join("\n"), false)
+  print_out("menu")
 end
-#printing to console - inlist means if the phrase belongs 
-#to program phrase list
-def print_out(phrases, in_list = true) 
-    print phrases if !in_list 
-    print @program_phrases[phrases] if !@program_phrases[phrases].nil? && in_list 
+#printing to console 
+def print_out(phrase) 
+    phrase = @program_phrases[phrase]
+    print phrase if !phrase.nil? 
 end
 #output text and get the command
 def menu_option_output
@@ -66,48 +68,47 @@ def command_not_exist
 end
 
 def image_defined?
-  raise "First create the image!" if @image.pixels_count < 2
-  true
+  raise "First create the image!" if @image.nil?
+  return true
 end
 
 def check_command(command)
   return '-h' if command == '-h' 
   return command_exist?(command) ? command.split(' ')[0] : command_not_exist
 end
+
+def prepare_parametres(command, counter, iter)
+  coords = []
+  check_arguments_number(command, counter)
+  1.upto(iter){|el| coords << command[el]}
+  command.shift
+  return command if check_if_positive_integers(coords) && check_color(command.last) 
+end
+
+def prepare_menu_commands(command)
+  case command[0]
+      when "V", "H"
+        return prepare_parametres(command, 5, 3)
+      when "F", "L"
+        return prepare_parametres(command, 4, 2)
+      when "I"
+        check_arguments_number(command, 3)
+        return [command[1], command[2]] if check_image_range(command[1], command[2]) 
+     end
+end
+
 #prepare the command for image
 def prepare_command(commands )
   command = commands.split(' ')
-  begin
-    image_defined? if !["I", "X", "R"].include? command[0]
-    case command[0]
-      when "V", "H"
-        check_arguments_number(command,5)
-        coords = [command[1],command[2],command[3]]
-        if check_if_positive_integers(coords) && check_color(command[4]) 
-          return [command[1],command[2],command[3], command[4]]    
-        end
-      when "F", "L"
-        check_arguments_number(command,4)
-        coords = [command[1],command[2]]
-        if check_if_positive_integers(coords) && check_color(command[3])
-          return [command[1],command[2],command[3]] 
-        end
-      when "I"
-        check_arguments_number(command,3)
-        return [command[1], command[2]] if check_image_range(command[1], command[2]) 
-    end
-  rescue Exception => e  
-    print e.message  
-  end
-  return []
+  image_defined? if !["I", "X", "R"].include? command[0]
+  return prepare_menu_commands(command)
 end 
 
-def menu_choice(command)
-  begin
-    letter = check_command(command)
-    param = letter ? prepare_command(command) : []
-    case letter
+def menu_choice_commands(letter, param)
+  case letter
       when "I"
+        @image = Image.new
+        #return print_out("img_created") if @image.pixels_count > 0
         @image.create_image(param[0], param[1]) if !param.empty?
       when "C"
         @image.clear 
@@ -127,9 +128,19 @@ def menu_choice(command)
         exit
       when "-h"
         program_menu
-      end
+  end
+end
+
+def prepare_menu_choice(command, letter)
+  param = letter ? prepare_command(command) : []
+  return menu_choice_commands(letter, param)
+end
+
+def menu_choice(command)
+  begin
+    return prepare_menu_choice(command, check_command(command))
   rescue Exception => e  
-    exit if letter == "X"
+    exit if check_command(command) == "X"
     print e.message  
   end 
 end
