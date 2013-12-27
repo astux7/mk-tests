@@ -15,10 +15,16 @@ class Image
     x2.upto(x3){|iter| result << [x1,iter] }
     result
   end
+  #check vertical line coordinates and color
+  def check_vertical_line_params(x1, x2, x3, color)
+    x1, x2 = check_coordinate(x1, @m), check_coordinate(x2, @n)
+    x3 = check_coordinate(x3, @n)
+    x_bigger_y(x2,x3)
+    check_color(color)
+  end
   #colored Vertical line
   def vertical_line(x1, x2, x3, color)
-    x1, x2, x3 = check_coordinate(x1, @m), check_coordinate(x2, @n), check_coordinate(x3, @n)
-    x_bigger_y?(x2,x3)
+    check_vertical_line_params(x1, x2, x3, color)
     coordinates = prepare_vertical_line(x1.to_i, x2.to_i, x3.to_i)
     colored_pixels(coordinates, color)
   end
@@ -28,17 +34,26 @@ class Image
     x1.upto(x2){|iter| result << [iter,x3] }
     result
   end
+  #check horizontal line coordinates and color
+  def check_horizontal_line_params(x1, x2, x3, color)
+    x1, x2 = check_coordinate(x1, @m), check_coordinate(x2, @m)
+    x3 = check_coordinate(x3, @n)
+    x_bigger_y(x1,x2)
+    check_color(color)
+  end
   #colored Horizontal line
   def horizontal_line(x1, x2, x3, color)
-    x1, x2, x3 = check_coordinate(x1, @m), check_coordinate(x2, @m), check_coordinate(x3, @n)
-    x_bigger_y?(x1,x2)
+    check_horizontal_line_params(x1, x2, x3, color)
     coordinates = prepare_horizontal_line(x1.to_i, x2.to_i, x3.to_i)
     colored_pixels(coordinates, color)
   end
   # color single pixel
   def colored_pixel(x, y, color)
     x, y = check_coordinate(x, @n), check_coordinate(y, @m)
-    @pixels.each{|px| px.color = color if px.x == x.to_i && px.y == y.to_i }
+    check_color(color)
+    @pixels.each{|px| 
+      px.color = color if px.x == x.to_i && px.y == y.to_i 
+    }
   end
   #color array of pixels
   def colored_pixels(group_pixels, color)
@@ -79,13 +94,11 @@ class Image
   end
   #finds pixel neighbors coordinates
   def find_pixel_neighbors(x, y)
-    template_neighbors = [[x-1,y-1],[x,y-1],[x+1,y-1],[x-1,y],[x,y],[x+1,y],[x-1,y+1],[x,y+1],[x+1,y+1]]
-    result = []
-    prepare_pixel_neighbors(result, template_neighbors)
-    result
+    neighbors = [[x-1,y-1],[x,y-1],[x+1,y-1],[x-1,y],[x,y],[x+1,y],[x-1,y+1],[x,y+1],[x+1,y+1]]
+    prepare_pixel_neighbors(neighbors)
   end
   #selecting neighbors
-  def prepare_pixel_neighbors(result, template_neighbors)
+  def prepare_pixel_neighbors(template_neighbors, result = [])
     template_neighbors.each{|coordinates| 
       index = find_pixel_index(coordinates[0],coordinates[1]) 
       result << @pixels[index] if index
@@ -103,6 +116,7 @@ class Image
   #creating NxM image with color 
   def create_image(n, m, color = 'O')
     check_image_range(m,n)
+    check_color(color) if color != 'O'
     @m, @n = m.to_i, n.to_i
     initializing_image_pixels(color)
   end
@@ -116,7 +130,8 @@ class Image
   end
   #clear table of image
   def clear(color = 'O')
-    @pixels.each{|px| px.color = color}
+    check_color(color) if color != 'O'
+    @pixels.each{|px| px.color = color }
   end
   # show current image
   def inspect

@@ -16,7 +16,7 @@ module ErrorHandler
     true
   end
   
-  def x_bigger_y?(x,y)
+  def x_bigger_y(x,y)
     raise "Bad Coodinates range" if x > y
     true
   end
@@ -28,8 +28,9 @@ module ErrorHandler
 
   def check_if_positive_integers(number_list)
     number_list.each{|number| 
-      raise "This is not numbers as giving parameters" if number.to_i < 1 || number.to_i > 250 
+      raise "This is not correct giving parameters" if number.to_i < 1 || number.to_i > 250 
     }
     true
   end
+
 end

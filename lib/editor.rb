@@ -44,8 +44,9 @@ def program_menu
 end
 #printing to console - inlist means if the phrase belongs 
 #to program phrase list
-def print_out(phrases, in_list = true)
-  print in_list ? @program_phrases[phrases] : phrases 
+def print_out(phrases, in_list = true) 
+    print phrases if !in_list 
+    print @program_phrases[phrases] if !@program_phrases[phrases].nil? && in_list 
 end
 #output text and get the command
 def menu_option_output
@@ -97,36 +98,40 @@ def prepare_command(commands )
     end
   rescue Exception => e  
     print e.message  
-    return []
   end
   return []
 end 
 
 def menu_choice(command)
-  letter = check_command(command)
-  param = letter ? prepare_command(command) : []
-  case letter
-    when "I"
-      @image.create_image(param[0], param[1]) if !param.empty?
-    when "C"
-      @image.clear 
-    when "L"
-     @image.colored_pixel(param[0], param[1], param[2]) if !param.empty?
-    when "V"
-      @image.vertical_line(param[0], param[1], param[2], param[3]) if !param.empty?
-    when "H"
-      @image.horizontal_line(param[0], param[1], param[2], param[3]) if !param.empty?
-    when "F"
-      @image.select_area_to_fill(param[0],param[1],param[2]) if !param.empty?
-    when "S"
-      @image.inspect
-    when "R"
-      system("clear")
-    when "X"
-      exit
-    when "-h"
-      program_menu
-    end
+  begin
+    letter = check_command(command)
+    param = letter ? prepare_command(command) : []
+    case letter
+      when "I"
+        @image.create_image(param[0], param[1]) if !param.empty?
+      when "C"
+        @image.clear 
+      when "L"
+       @image.colored_pixel(param[0], param[1], param[2]) if !param.empty?
+      when "V"
+        @image.vertical_line(param[0], param[1], param[2], param[3]) if !param.empty?
+      when "H"
+        @image.horizontal_line(param[0], param[1], param[2], param[3]) if !param.empty?
+      when "F"
+        @image.select_area_to_fill(param[0],param[1],param[2]) if !param.empty?
+      when "S"
+        @image.inspect
+      when "R"
+        system("clear")
+      when "X"
+        exit
+      when "-h"
+        program_menu
+      end
+  rescue Exception => e  
+    exit if letter == "X"
+    print e.message  
+  end 
 end
 
 end

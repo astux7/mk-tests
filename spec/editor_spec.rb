@@ -31,7 +31,16 @@ describe Editor do
   end
   it 'should return the args for method F 3 3 J' do
     editor.prepare_command("I 4 4")
-    expect(editor.prepare_command("F 3 3 J")) .to eq(["3","3","J"])
+    expect(editor.prepare_command("F 3 3 J")) .to eq(["3","3","J"]) 
   end
 
+  it 'should handle the error of bad menu_choice args' do
+    expect(editor).to receive(:print).with("Arguments missing in Command")
+    editor.menu_choice("H 4")
+  end
+
+  it 'should print the phrase' do
+    expect(editor).to receive(:print).with("\nChoose the command: ")
+    editor.print_out("p_command")
+  end
 end	

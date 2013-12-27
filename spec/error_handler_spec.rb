@@ -29,11 +29,11 @@ describe ErrorHandling do
   end
 
   it 'should return true if 1st coord is less then 2nd' do
-    expect(err.x_bigger_y?(4,9)).to be_true
+    expect(err.x_bigger_y(4,9)).to be_true
   end
   
   it 'should raise error if the 1st coord is greater then 2nd' do
-    expect(lambda { err.x_bigger_y?(10,9)} ).to raise_error(RuntimeError)
+    expect(lambda { err.x_bigger_y(10,9)} ).to raise_error(RuntimeError)
   end
 
   it 'should return true if command arguments correct' do
