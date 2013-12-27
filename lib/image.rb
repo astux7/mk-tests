@@ -126,7 +126,8 @@ class Image
   end
   #finds pixel neighbors coordinates
   def find_pixel_neighbors(x, y, color)
-    neighbors = [[x-1,y-1],[x,y-1],[x+1,y-1],[x-1,y],[x,y],[x+1,y],[x-1,y+1],[x,y+1],[x+1,y+1]]
+   # neighbors = [[x-1,y-1],[x,y-1],[x+1,y-1],[x-1,y],[x,y],[x+1,y],[x-1,y+1],[x,y+1],[x+1,y+1]]
+    neighbors = [[x,y-1],[x-1,y],[x,y],[x+1,y],[x,y+1]]
     prepare_pixel_neighbors(neighbors, color)
   end
   #color pixel neighbors
@@ -138,7 +139,7 @@ class Image
   end
   #find the index im pixels by gave coordinates of pixel
   def find_pixel_index(x, y)
-    (x-1)+(y-1)*@n if exist_x_y?(x,y)
+    (x-1)+(y-1)*@n if exist_x_y?(x, y)
   end
   #counting image pixels
   def pixels_count
@@ -154,7 +155,7 @@ class Image
   def initializing_image_pixels(color)
     for y in 1..@m
       for x in 1..@n 
-        @pixels << Pixel.new(x,y,color)
+        @pixels << Pixel.new(x, y ,color)
       end
     end
   end

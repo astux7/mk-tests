@@ -63,14 +63,14 @@ describe Image do
     img.create_image(5, 4, 'O')
     #[[2, 2], [3, 2], [4, 2], [2 ,3], [3, 3], [4, 3], [2, 4], [3, 4], [4, 4]]
     img.find_pixel_neighbors(3,3,'G')
-    expect(img).to receive(:print).with("OOOOO\nOGGGO\nOGGGO\nOGGGO\n")
+    expect(img).to receive(:print).with("OOOOO\nOOGOO\nOGGGO\nOOGOO\n")
     img.inspect
   end
    it 'should colored the neighbors of pixel [5,4] with color G' do
     img.create_image(5, 4,'O')
     #[[4, 3], [5, 3], [4, 4], [5, 4]]
     img.find_pixel_neighbors(5,4, "G")
-    expect(img).to receive(:print).with("OOOOO\nOOOOO\nOOOGG\nOOOGG\n")
+    expect(img).to receive(:print).with("OOOOO\nOOOOO\nOOOOG\nOOOGG\n")
     img.inspect
   end
 
