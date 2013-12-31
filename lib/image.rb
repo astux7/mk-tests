@@ -145,10 +145,10 @@ class Image
     @pixels.count
   end
   #prepare image to create
-  def prepare_image_creation(m, n, color) 
-    check_image_range?(m, n)
+  def prepare_image_creation(n, m, color) 
+    check_image_range?(n, m)
     check_color?(color) if color != 'O'
-    @n_rows, @m_columns = m.to_i, n.to_i
+    @n_rows, @m_columns = n.to_i, m.to_i
   end
   #init image pixels
   def initializing_image_pixels(color)

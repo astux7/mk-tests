@@ -88,6 +88,8 @@ def prepare_menu_commands(command)
         return prepare_parameters(command, 4, 2)
       when "I"
         return [command[1], command[2]] if check_arguments_number?(command, 3)
+      when "R", "S", "C", "X"
+        check_arguments_number?(command, 1)
      end
 end
 

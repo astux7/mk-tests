@@ -32,7 +32,7 @@ describe Editor do
   end
 
   it 'should handle the error of bad menu_choice args' do
-    expect(editor).to receive(:print).with("\nArguments missing in Command\n")
+    expect(editor).to receive(:print).with("\nBad arguments in Command\n")
     editor.menu_choice("H 4")
   end
 

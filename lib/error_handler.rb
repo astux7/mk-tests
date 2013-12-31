@@ -8,12 +8,12 @@ module ErrorHandler
 
   def is_numeric?(number) 
     number_tempate = /\A\+?0*[1-9]\d*\Z/
-    raise "\nNumber is not correct! \n" unless number_tempate.match(number.to_s)
+    raise "\nNumber does not valid! \n" unless number_tempate.match(number.to_s)
     true
   end
 
   def check_coordinate(coordinate, size = 250)
-    raise "\nCoordinate not valid\n" unless is_numeric?(coordinate) && coordinate.to_i <= size
+    raise "\nNumber does not valid\n" unless is_numeric?(coordinate) && coordinate.to_i <= size
     return coordinate.to_i
   end
 
@@ -28,7 +28,7 @@ module ErrorHandler
   end
 
   def check_arguments_number?(command, number)
-    raise "\nArguments missing in Command\n" if number != command.count
+    raise "\nBad arguments in Command\n" if number != command.count
     true
   end
 
