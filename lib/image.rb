@@ -4,10 +4,10 @@ require_relative 'error_handler'
 class Image
   
   include ErrorHandler
-  attr_accessor :pixels, :m, :n
+  attr_accessor :pixels, :m_columns, :n_rows
 
   def initialize
-    @m, @n, @pixels = 0, 0, []
+    @m_columns, @n_rows, @pixels = 0, 0, []
   end
 #=================================================================================
   #creating NxM image with color 
@@ -17,9 +17,9 @@ class Image
   end
   # color single pixel
   def colored_pixel(x, y, color)
-    x, y = check_coordinate(x, @n), check_coordinate(y, @m)
+    x, y = check_coordinate(x, @m_columns), check_coordinate(y, @n_rows)
     check_color?(color)
-    @pixels[(x-1)+(y-1)*@n].color = color
+    @pixels[(x-1)+(y-1)*@m_columns].color = color
   end
   #colored Vertical line
   def draw_vertical_line(x1, x2, x3, color)
@@ -47,7 +47,7 @@ class Image
   # show current image
   def inspect
     output = ""
-    @pixels.each{|px| output += px.x % @n == 0 ? px.color + "\n" : px.color }
+    @pixels.each{|px| output += px.x % @m_columns == 0 ? px.color + "\n" : px.color }
     print output
   end
  #============================================================================= 
@@ -73,9 +73,9 @@ class Image
   #check line coordinates
   def check_line_coordinates(x1, x2, x3, line = "V")
     if line == "V"
-    return [check_coordinate(x1, @n), check_coordinate(x2, @m), check_coordinate(x3, @m)] 
+    return [check_coordinate(x1, @m_columns), check_coordinate(x2, @n_rows), check_coordinate(x3, @n_rows)] 
     end
-    return [check_coordinate(x1, @n), check_coordinate(x2, @n), check_coordinate(x3, @m)]
+    return [check_coordinate(x1, @m_columns), check_coordinate(x2, @m_columns), check_coordinate(x3, @n_rows)]
   end
   #check horizontal line coordinates and color
   def check_horizontal_line_params(x1, x2, x3, color)
@@ -87,7 +87,7 @@ class Image
   #coloring pixels as giving array with px coordinates
   def colored_pixels_by_coordinates(group_pixels, color)
     group_pixels.each{|px| 
-      @pixels[(px[0]-1)+(px[1]-1)*@n].color = color
+      @pixels[(px[0]-1)+(px[1]-1)*@m_columns].color = color
     }
   end
   #coloring pixels as giving pixels object array but not coordinates
@@ -96,7 +96,7 @@ class Image
   end
   #get the color of pixel of giving coordinates
   def find_pixel_color(x, y)
-    @pixels[(x-1)+(y-1)*@n].color
+    @pixels[(x-1)+(y-1)*@m_columns].color
   end
   #get the same color pixels in image
   def same_color_pixels(x, y)
@@ -106,7 +106,7 @@ class Image
   #select area R to fill pixels with color
   def check_area_parameters(x, y, color)
     check_color?(color)
-    [check_coordinate(x, @n), check_coordinate(y, @m)]
+    [check_coordinate(x, @m_columns), check_coordinate(y, @n_rows)]
   end
   #select pixels for area
   def prepare_area_to_fill(x, y, color)
@@ -121,7 +121,7 @@ class Image
   end
   #if both coordinates is in range of image
   def exist_x_y?(x,y)
-    return exist_coordinate?(y, @m) && exist_coordinate?(x, @n) ? true : false
+    return exist_coordinate?(y, @n_rows) && exist_coordinate?(x, @m_columns) ? true : false
   end
   #finds pixel neighbors coordinates
   def find_pixel_neighbors(x, y, color)
@@ -138,7 +138,7 @@ class Image
   end
   #find the index im pixels by gave coordinates of pixel
   def find_pixel_index(x, y)
-    (x-1)+(y-1)*@n if exist_x_y?(x, y)
+    (x-1)+(y-1)*@m_columns if exist_x_y?(x, y)
   end
   #counting image pixels
   def pixels_count
@@ -148,12 +148,12 @@ class Image
   def prepare_image_creation(m, n, color) 
     check_image_range?(m, n)
     check_color?(color) if color != 'O'
-    @m, @n = m.to_i, n.to_i
+    @n_rows, @m_columns = m.to_i, n.to_i
   end
   #init image pixels
   def initializing_image_pixels(color)
-    for y in 1..@m
-      for x in 1..@n 
+    for y in 1..@n_rows
+      for x in 1..@m_columns 
         @pixels << Pixel.new(x, y ,color)
       end
     end
