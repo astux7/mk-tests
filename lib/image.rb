@@ -48,7 +48,7 @@ class Image
   def inspect
     output = ""
     @pixels.each{|px| output += px.x % @m_columns == 0 ? px.color + "\n" : px.color }
-    print output
+    output
   end
  #============================================================================= 
   #Vertical coordinates line draw

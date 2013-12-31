@@ -16,29 +16,25 @@ describe Image do
   it 'should clear the image' do
     img.create_image(5, 4, 'O')
     img.clear('C')
-    expect(img).to receive(:print).with("CCCCC\nCCCCC\nCCCCC\nCCCCC\n")
-    img.inspect
+    expect(img.inspect).to eq("CCCCC\nCCCCC\nCCCCC\nCCCCC\n")
   end
 
   it 'should draw the image as created' do
     img.create_image(5, 4, 'O')
-    expect(img).to receive(:print).with("OOOOO\nOOOOO\nOOOOO\nOOOOO\n")
-    img.inspect
+    expect(img.inspect).to eq("OOOOO\nOOOOO\nOOOOO\nOOOOO\n")
   end
 
   it 'should colored the pixel [2,4] in image with color T' do
     img.create_image(5, 4, 'O')
     img.colored_pixel(2,4,'T')
-    expect(img).to receive(:print).with("OOOOO\nOOOOO\nOOOOO\nOTOOO\n")
-    img.inspect
+    expect(img.inspect).to eq("OOOOO\nOOOOO\nOOOOO\nOTOOO\n")
   end
 
   it 'should color the line of pixels [2,1][2,2][2,3] color M' do
     coord = [[2,1],[2,2],[2,3]]
     img.create_image(5, 4, 'O')
     img.colored_pixels_by_coordinates(coord,'M')
-    expect(img).to receive(:print).with("OMOOO\nOMOOO\nOMOOO\nOOOOO\n")
-    img.inspect
+    expect(img.inspect).to eq("OMOOO\nOMOOO\nOMOOO\nOOOOO\n")
   end
 
   it 'should get the color of the pixels [2,2] => O and [2,3] => M' do
@@ -53,8 +49,7 @@ describe Image do
     arr, coord = [],[[1, 3], [2, 3], [2, 4], [3, 3]]
     img.create_image(5, 4, 'O')
     img.colored_pixels_by_coordinates(coord,'M')
-    expect(img).to receive(:print).with("OOOOO\nOOOOO\nMMMOO\nOMOOO\n")
-    img.inspect
+    expect(img.inspect).to eq("OOOOO\nOOOOO\nMMMOO\nOMOOO\n")
     img.same_color_pixels(1,3).each{|px| arr << [px.x,px.y] }
     expect(arr).to eq([[1, 3], [2, 3], [3, 3], [2, 4]])
   end
@@ -63,22 +58,19 @@ describe Image do
     img.create_image(5, 4, 'O')
     #[[2, 2], [3, 2], [4, 2], [2 ,3], [3, 3], [4, 3], [2, 4], [3, 4], [4, 4]]
     img.find_pixel_neighbors(3,3,'G')
-    expect(img).to receive(:print).with("OOOOO\nOOGOO\nOGGGO\nOOGOO\n")
-    img.inspect
+    expect(img.inspect).to eq("OOOOO\nOOGOO\nOGGGO\nOOGOO\n")
   end
    it 'should colored the neighbors of pixel [5,4] with color G' do
     img.create_image(5, 4,'O')
     #[[4, 3], [5, 3], [4, 4], [5, 4]]
     img.find_pixel_neighbors(5,4, "G")
-    expect(img).to receive(:print).with("OOOOO\nOOOOO\nOOOOG\nOOOGG\n")
-    img.inspect
+    expect(img.inspect).to eq("OOOOO\nOOOOO\nOOOOG\nOOOGG\n")
   end
 
   it 'should colored the vertical line [2 3][2 4] W color' do
     img.create_image(5, 4, 'O')
     img.draw_vertical_line(2,3,4,'W')
-    expect(img).to receive(:print).with("OOOOO\nOOOOO\nOWOOO\nOWOOO\n")
-    img.inspect
+    expect(img.inspect).to eq("OOOOO\nOOOOO\nOWOOO\nOWOOO\n")
   end  
 
   it 'vertical line rise the error if not good params given' do
@@ -91,8 +83,7 @@ describe Image do
   it 'should colored the horizontal line [3 2][4 2] Z color' do
     img.create_image(5, 4, 'O')
     img.draw_horizontal_line(3,4,2,'Z')
-    expect(img).to receive(:print).with("OOOOO\nOOZZO\nOOOOO\nOOOOO\n")
-    img.inspect
+    expect(img.inspect).to eq("OOOOO\nOOZZO\nOOOOO\nOOOOO\n")
   end  
 
   it 'horizontal line rise the error if not good params given' do
@@ -107,8 +98,7 @@ describe Image do
     arr = [[2, 2], [3, 2], [4, 2], [2 ,3], [3, 3], [4, 3], [2, 4], [3, 4], [4, 4]]
     img.colored_pixels_by_coordinates(arr, 'U')
     img.selected_area_to_fill(1,2,'F')
-    expect(img).to receive(:print).with("FFFFF\nFFFFF\nFFUFF\nFFUFF\n")
-    img.inspect
+    expect(img.inspect).to eq("FFFFF\nFFFFF\nFFUFF\nFFUFF\n")
   end 
 
   it 'should raise error for bad args of filling area' do
@@ -121,13 +111,11 @@ describe Image do
   it 'should make the final image steps' do
     img.create_image(5, 6, 'O')
     img.colored_pixel(2,3,'A')
-    expect(img).to receive(:print).with("OOOOO\nOOOOO\nOAOOO\nOOOOO\nOOOOO\nOOOOO\n")
-    img.inspect
+    expect(img.inspect).to eq("OOOOO\nOOOOO\nOAOOO\nOOOOO\nOOOOO\nOOOOO\n")
     img.selected_area_to_fill(3,3,'J')
     img.draw_vertical_line(2,3,4,'W')
     img.draw_horizontal_line(3,4,2,'Z')
-    expect(img).to receive(:print).with("JJJJJ\nJJZZJ\nJWJJJ\nJWJJJ\nJJJJJ\nJJJJJ\n")
-    img.inspect
+    expect(img.inspect).to eq("JJJJJ\nJJZZJ\nJWJJJ\nJWJJJ\nJJJJJ\nJJJJJ\n")
   end 
 
 end	

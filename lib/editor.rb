@@ -114,7 +114,7 @@ def menu_choice_commands(letter, param)
       when "F"
         @image.selected_area_to_fill(param[0],param[1],param[2]) if !param.empty?
       when "S"
-        @image.inspect
+        print @image.inspect
       when "R"
         system("clear")
       when "X"
