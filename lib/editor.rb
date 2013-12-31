@@ -32,7 +32,8 @@ def editor_constants
     "p_command" => "\nChoose the command: ",
     "undef_command" => "\nEditor do not know this command, for help put -h \n ",
     "bad_coordinate" => "\n Image coordinates are wrong \n",
-    "img_created" => "\nImage already created! \n"
+    "img_created" => "\nImage already created! \n",
+    "create_img" => "\nFirst create the image!\n"
   }
 end
 
@@ -43,16 +44,17 @@ def interactive_menu
 end
 
 def program_menu
-  print_out("menu")
+  user_output("menu")
 end
 #printing to console 
-def print_out(phrase) 
+def user_output(phrase, error = false) 
     phrase = @program_phrases[phrase]
+    raise phrase if error == true
     print phrase if !phrase.nil? 
 end
 #output text and get the command
 def menu_option_output
-  print_out("p_command")
+  user_output("p_command")
   $stdin.gets.chomp
 end
 
@@ -62,45 +64,37 @@ def command_exist?(command)
   return menu_comands.any?{|letter| letter == option[0]} ? true : false
 end
 
-def command_not_exist
-  print_out("undef_command") 
-  false
-end
-
 def image_defined?
-  raise "First create the image!" if @image.nil?
+  raise @program_phrases["create_img"] if @image.nil?
   return true
 end
 
 def check_command(command)
   return '-h' if command == '-h' 
-  return command_exist?(command) ? command.split(' ')[0] : command_not_exist
+  return command_exist?(command) ? command.split(' ')[0] : user_output("undef_command", true) 
 end
 
-def prepare_parametres(command, counter, iter)
-  coords = []
-  check_arguments_number(command, counter)
-  1.upto(iter){|el| coords << command[el]}
+def prepare_parameters(command, counter, iter)
+  check_arguments_number?(command, counter)
   command.shift
-  return command if check_if_positive_integers(coords) && check_color(command.last) 
+  return command
 end
 
 def prepare_menu_commands(command)
   case command[0]
       when "V", "H"
-        return prepare_parametres(command, 5, 3)
+        return prepare_parameters(command, 5, 3)
       when "F", "L"
-        return prepare_parametres(command, 4, 2)
+        return prepare_parameters(command, 4, 2)
       when "I"
-        check_arguments_number(command, 3)
-        return [command[1], command[2]] if check_image_range(command[1], command[2]) 
+        return [command[1], command[2]] if check_arguments_number?(command, 3)
      end
 end
 
 #prepare the command for image
-def prepare_command(commands )
-  command = commands.split(' ')
-  image_defined? if !["I", "X", "R"].include? command[0]
+def prepare_command(arguments)
+  command = arguments.split(' ')
+  image_defined? if !["I", "X", "R", "-h"].include? command[0]
   return prepare_menu_commands(command)
 end 
 
@@ -108,18 +102,17 @@ def menu_choice_commands(letter, param)
   case letter
       when "I"
         @image = Image.new
-        #return print_out("img_created") if @image.pixels_count > 0
         @image.create_image(param[0], param[1]) if !param.empty?
       when "C"
         @image.clear 
       when "L"
        @image.colored_pixel(param[0], param[1], param[2]) if !param.empty?
       when "V"
-        @image.vertical_line(param[0], param[1], param[2], param[3]) if !param.empty?
+        @image.draw_vertical_line(param[0], param[1], param[2], param[3]) if !param.empty?
       when "H"
-        @image.horizontal_line(param[0], param[1], param[2], param[3]) if !param.empty?
+        @image.draw_horizontal_line(param[0], param[1], param[2], param[3]) if !param.empty?
       when "F"
-        @image.select_area_to_fill(param[0],param[1],param[2]) if !param.empty?
+        @image.selected_area_to_fill(param[0],param[1],param[2]) if !param.empty?
       when "S"
         @image.inspect
       when "R"
@@ -140,7 +133,7 @@ def menu_choice(command)
   begin
     return prepare_menu_choice(command, check_command(command))
   rescue Exception => e  
-    exit if check_command(command) == "X"
+    exit if command.eql?("X")
     print e.message  
   end 
 end

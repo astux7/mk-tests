@@ -76,48 +76,46 @@ describe Image do
 
   it 'should colored the vertical line [2 3][2 4] W color' do
     img.create_image(5, 4, 'O')
-    img.vertical_line(2,3,4,'W')
+    img.draw_vertical_line(2,3,4,'W')
     expect(img).to receive(:print).with("OOOOO\nOOOOO\nOWOOO\nOWOOO\n")
     img.inspect
   end  
 
   it 'vertical line rise the error if not good params given' do
     img.create_image(5, 4, 'O')
-    expect(lambda { img.vertical_line(2,3,4,9)}).to raise_error(RuntimeError)
-    expect(lambda { img.vertical_line(2,6,4,'P')}).to raise_error(RuntimeError)
-    expect(lambda { img.vertical_line(33,3,4,'O')}).to raise_error(RuntimeError)
-  #  expect(lambda { img.vertical_line(33,3,'O')}).to raise_error(RuntimeError)
+    expect(lambda { img.draw_vertical_line(2,3,4,9)}).to raise_error(RuntimeError)
+    expect(lambda { img.draw_vertical_line(2,6,4,'P')}).to raise_error(RuntimeError)
+    expect(lambda { img.draw_vertical_line(33,3,4,'O')}).to raise_error(RuntimeError)
   end 
 
   it 'should colored the horizontal line [3 2][4 2] Z color' do
     img.create_image(5, 4, 'O')
-    img.horizontal_line(3,4,2,'Z')
+    img.draw_horizontal_line(3,4,2,'Z')
     expect(img).to receive(:print).with("OOOOO\nOOZZO\nOOOOO\nOOOOO\n")
     img.inspect
   end  
 
   it 'horizontal line rise the error if not good params given' do
     img.create_image(5, 4, 'O')
-    expect(lambda { img.horizontal_line(2,3,4,9)}).to raise_error(RuntimeError)
-    expect(lambda { img.horizontal_line(5,3,2,'P')}).to raise_error(RuntimeError)
-    expect(lambda { img.horizontal_line(33,3,4,'O')}).to raise_error(RuntimeError)
-  #  expect(lambda { img.vertical_line(33,3,'O')}).to raise_error(RuntimeError)
+    expect(lambda { img.draw_horizontal_line(2,3,4,9)}).to raise_error(RuntimeError)
+    expect(lambda { img.draw_horizontal_line(5,3,2,'P')}).to raise_error(RuntimeError)
+    expect(lambda { img.draw_horizontal_line(33,3,4,'O')}).to raise_error(RuntimeError)
   end  
 
   it 'should colored area R with color F' do
     img.create_image(5, 4, 'O')
     arr = [[2, 2], [3, 2], [4, 2], [2 ,3], [3, 3], [4, 3], [2, 4], [3, 4], [4, 4]]
     img.colored_pixels_by_coordinates(arr, 'U')
-    img.select_area_to_fill(1,2,'F')
+    img.selected_area_to_fill(1,2,'F')
     expect(img).to receive(:print).with("FFFFF\nFFFFF\nFFUFF\nFFUFF\n")
     img.inspect
   end 
 
   it 'should raise error for bad args of filling area' do
     img.create_image(5, 4, 'O')
-    expect(lambda { img.select_area_to_fill(1,2,'i')}).to raise_error(RuntimeError)
-    expect(lambda { img.select_area_to_fill(7,2,'P')}).to raise_error(RuntimeError)
-    expect(lambda { img.select_area_to_fill(1,'O',9)}).to raise_error(RuntimeError)
+    expect(lambda { img.selected_area_to_fill(1,2,'i')}).to raise_error(RuntimeError)
+    expect(lambda { img.selected_area_to_fill(7,2,'P')}).to raise_error(RuntimeError)
+    expect(lambda { img.selected_area_to_fill(1,'O',9)}).to raise_error(RuntimeError)
   end 
   
   it 'should make the final image steps' do
@@ -125,9 +123,9 @@ describe Image do
     img.colored_pixel(2,3,'A')
     expect(img).to receive(:print).with("OOOOO\nOOOOO\nOAOOO\nOOOOO\nOOOOO\nOOOOO\n")
     img.inspect
-    img.select_area_to_fill(3,3,'J')
-    img.vertical_line(2,3,4,'W')
-    img.horizontal_line(3,4,2,'Z')
+    img.selected_area_to_fill(3,3,'J')
+    img.draw_vertical_line(2,3,4,'W')
+    img.draw_horizontal_line(3,4,2,'Z')
     expect(img).to receive(:print).with("JJJJJ\nJJZZJ\nJWJJJ\nJWJJJ\nJJJJJ\nJJJJJ\n")
     img.inspect
   end 

@@ -16,8 +16,7 @@ describe Editor do
   it 'should return only command  letter if it has in program' do
     expect(editor.check_command("I 4 4")).to eq("I")
     expect(editor.check_command("-h")).to eq("-h")
-    expect(editor).to receive(:print).with("\nEditor do not know this command, for help put -h \n ")
-    expect(editor.check_command("K 88 9")).to be_false
+    expect(lambda { editor.check_command("K 88 9")}).to raise_error(RuntimeError)
   end  
 
   it 'should raise error cause not init the image first for F 3 3 J' do
@@ -39,11 +38,15 @@ describe Editor do
 
   it 'should print the phrase' do
     expect(editor).to receive(:print).with("\nChoose the command: ")
-    editor.print_out("p_command")
+    editor.user_output("p_command")
+  end
+
+  it 'should raise the phrase' do
+    expect(lambda { editor.user_output("create_img", true)}).to raise_error(RuntimeError)
   end
 
   it 'should prepare the commands parametres ' do
-    expect(editor.prepare_parametres(["H", "1", "3", "1", "P"],5,3)).to eq(["1","3","1", "P"])
+    expect(editor.prepare_parameters(["H", "1", "3", "1", "P"],5,3)).to eq(["1","3","1", "P"])
   end
 
 end
