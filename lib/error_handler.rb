@@ -13,7 +13,7 @@ module ErrorHandler
   end
 
   def check_coordinate(coordinate, size = 250)
-    raise "\nNumber does not valid\n" unless is_numeric?(coordinate) && coordinate.to_i <= size
+    raise "\nNumber is out of range 1..#{size}\n" unless is_numeric?(coordinate) && coordinate.to_i <= size
     return coordinate.to_i
   end
 

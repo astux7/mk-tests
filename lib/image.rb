@@ -73,7 +73,7 @@ class Image
   #check line coordinates
   def check_line_coordinates(x1, x2, x3, line = "V")
     if line == "V"
-    return [check_coordinate(x1, @m_columns), check_coordinate(x2, @n_rows), check_coordinate(x3, @n_rows)] 
+      return [check_coordinate(x1, @m_columns), check_coordinate(x2, @n_rows), check_coordinate(x3, @n_rows)] 
     end
     return [check_coordinate(x1, @m_columns), check_coordinate(x2, @m_columns), check_coordinate(x3, @n_rows)]
   end
