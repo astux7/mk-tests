@@ -59,5 +59,14 @@ describe ErrorHandling do
   it 'should return true if integer' do
     expect( err.is_numeric?(4) ).to be_true
   end
+  
+   it 'should print the phrase' do
+    expect(err).to receive(:print).with("\nChoose the command: ")
+    err.user_output("p_command")
+  end
+
+  it 'should raise the phrase' do
+    expect(lambda { err.user_output("create_img", true)}).to raise_error(RuntimeError)
+  end
 
 end

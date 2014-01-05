@@ -36,15 +36,6 @@ describe Editor do
     editor.menu_choice("H 4")
   end
 
-  it 'should print the phrase' do
-    expect(editor).to receive(:print).with("\nChoose the command: ")
-    editor.user_output("p_command")
-  end
-
-  it 'should raise the phrase' do
-    expect(lambda { editor.user_output("create_img", true)}).to raise_error(RuntimeError)
-  end
-
   it 'should prepare the commands parametres ' do
     expect(editor.prepare_parameters(["H", "1", "3", "1", "P"],5,3)).to eq(["1","3","1", "P"])
   end
