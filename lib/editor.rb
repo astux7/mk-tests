@@ -49,6 +49,13 @@ class Editor
     return command
   end
 
+  def prepare_image_parameters(command)
+    if check_arguments_number?(command, 3) && is_numeric?(command[2]) && is_numeric?(command[1])
+      return [command[1], command[2]]   
+    end
+    return [] 
+  end
+
   def prepare_menu_commands(command)
     case command[0]
         when "V", "H"
@@ -56,7 +63,7 @@ class Editor
         when "F", "L"
           return prepare_parameters(command, 4, 2)
         when "I"
-          return [command[1], command[2]] if check_arguments_number?(command, 3)
+          return prepare_image_parameters(command)
         when "R", "S", "C", "X"
           check_arguments_number?(command, 1)
        end
@@ -72,7 +79,7 @@ class Editor
   def menu_choice_commands(letter, param)
     case letter
         when "I"
-          @image = Image.new
+          @image = Image.new if !param.empty?
           @image.create_image(param[0], param[1]) if !param.empty?
         when "C"
           @image.clear 
