@@ -30,9 +30,7 @@ def editor_constants
     > R - Clear the console\n
     > X - Terminate the session\n",
     "p_command" => "\nChoose the command: ",
-    "undef_command" => "\nEditor does not know this command, for help put -h \n ",
-    "bad_coordinate" => "\n Image coordinates are wrong \n",
-    "img_created" => "\nImage already created! \n",
+    "undef_command" => "\nEditor do not know this command, for help put -h \n ",
     "create_img" => "\nFirst create the image!\n"
   }
 end
@@ -108,7 +106,7 @@ def menu_choice_commands(letter, param)
       when "C"
         @image.clear 
       when "L"
-        @image.colored_pixel(param[0], param[1], param[2]) if !param.empty?
+       @image.colored_pixel(param[0], param[1], param[2]) if !param.empty?
       when "V"
         @image.draw_vertical_line(param[0], param[1], param[2], param[3]) if !param.empty?
       when "H"
