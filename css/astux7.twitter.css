@@ -1,0 +1,68 @@
+body {
+	background-image: url(https://si0.twimg.com/profile_background_images/378800000124006106/20ba18c36f5429280c6d5d355698f40d.jpeg);
+	background-position: center 40px;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-color: #1A1B1F;
+	height: 100%;
+	font-family: "Helvetica Neue",Arial,sans-serif;
+	color: #333;
+	font-size: 14px;
+	width: 865px;
+	line-height: 18px;
+	overflow-y: scroll;
+	min-width: 520px;
+}
+
+.icon {
+	display: inline-block;
+	vertical-align: text-top;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+.settings{
+	background-position: -160px -80px;
+	float: left;
+	width: 35px;
+    margin: -4px 6px 0 0;
+	background-image: url('https://abs.twimg.com/a/1389141113/t1/img/twitter_web_sprite_icons.png');
+}
+.settings .caret{
+	float: right;
+	margin-left: 5px;
+	margin-top: 10px;
+}
+.settings_link{
+	display: block;
+	height: 12px;
+	padding: 13px 12px 15px;
+	font-weight: bold;
+	line-height: 1;
+	color: #bbb;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.75);
+}
+#doc{
+	height: 100%;
+}
+
+.navbar-default{
+	border-color: inherit;
+	text-align: center;
+}
+
+.navbar{
+	position: fixed;
+	width: auto;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1000;
+	-webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.25);
+	box-shadow: 0 2px 3px rgba(0,0,0,0.25);
+	background-image: url( 'https://abs.twimg.com/a/1389141113/t1/img/twitter_web_sprite_bgs.png');
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-color: #252525;
+    height: 40px;
+
+}
