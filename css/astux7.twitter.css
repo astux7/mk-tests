@@ -7,11 +7,19 @@ body {
 	height: 100%;
 	font-family: "Helvetica Neue",Arial,sans-serif;
 	color: #333;
-	font-size: 14px;
 	width: 865px;
 	line-height: 18px;
 	overflow-y: scroll;
 	min-width: 520px;
+}
+
+.navbar-collapse{
+	background-color: #1A1B1F;
+    border-radius: 25px;
+    margin: 5px;
+    padding: 10px;
+    height: 100%;	
+    overflow-y: scroll;
 }
 
 .icon {
@@ -27,14 +35,36 @@ body {
     margin: -4px 6px 0 0;
 	background-image: url('https://abs.twimg.com/a/1389141113/t1/img/twitter_web_sprite_icons.png');
 }
-.settings .caret{
-	float: right;
-	margin-left: 5px;
-	margin-top: 10px;
+.settings_link .caret{
+	margin-left: -10px;
+	margin-top: 5px;
+}
+.metadata{
+	display: block;
+	white-space: nowrap;
+	margin: 0px;
+	margin-top: -7px;
+	margin-left: 40px;
+	padding: 0px;
+	color: #999;
+	font-size: 11px;
+}
+.dropdown-menu{
+	text-align: left;
+    font-size: 12px;
+}
+.dropdown-menu ul li{
+	line-height: inherit;
+	line-height: 10px;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+	color: #fff;
+	background-color: #2271a9;
+	font-weight: normal;
 }
 .settings_link{
 	display: block;
-	height: 12px;
+    height: 50px;
 	padding: 13px 12px 15px;
 	font-weight: bold;
 	line-height: 1;
@@ -48,6 +78,10 @@ body {
 .navbar-default{
 	border-color: inherit;
 	text-align: center;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	background-color: #252525;
 }
 
 .navbar{
@@ -64,5 +98,84 @@ body {
     background-position: 0 0;
     background-color: #252525;
     height: 40px;
+}
 
+.search-input{
+	width: 200px;
+	padding: 2px;
+	padding-left: 15px;
+    border-bottom-left-radius: 13px;
+	border-bottom-right-radius: 13px;
+	border-bottom-style: none;
+	border-bottom-width: 0px;
+	border-left-color: rgb(68, 68, 68);
+	border-left-style: none;
+	border-left-width: 0px;
+	border-right-color: rgb(68, 68, 68);
+	border-right-style: none;
+	border-right-width: 0px;
+	border-top-color: rgb(68, 68, 68);
+	border-top-left-radius: 13px;
+	border-top-right-radius: 13px;
+	border-top-style: none;
+	border-top-width: 0px;
+	box-shadow: none;
+    color: #000000;
+    font-size: 12px;
+}
+
+.twitter_icon {
+	-webkit-transition-delay: 0s;
+	-webkit-transition-duration: 0.25s;
+	-webkit-transition-property: all;
+	-webkit-transition-timing-function: ease-in-out;
+	background-image: url(https://abs.twimg.com/a/1389141113/t1/img/twitter_web_sprite_icons.png);
+	background-position: -40px 0px;
+	background-repeat: no-repeat;
+	color: rgb(51, 51, 51);
+	display: inline-block;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	height: 21px;
+	line-height: 24px;
+	text-align: center;
+	text-rendering: optimizelegibility;
+	width: 24px;
+	margin: 14px;
+}
+
+a.glyphicon:hover, a.glyphicon:focus{
+	color: #fff;
+}
+
+.glyphicon span{
+   padding-left: 5px;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #fff;
+}
+
+
+.form-group{
+	margin-top: 5px;
+}
+
+.fullname {
+	font-weight: bold;
+	color: #333;
+	margin: 0px;
+	padding: 0px;
+	margin-left: 5px;
+	margin-top: -10px;
+}
+.size32 {
+	width: 32px;
+	height: 32px;
+	border-radius: 4px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+	color: #fff;
 }
