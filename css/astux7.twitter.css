@@ -1,6 +1,6 @@
 body {
 	background-image: url(https://si0.twimg.com/profile_background_images/378800000124006106/20ba18c36f5429280c6d5d355698f40d.jpeg);
-	background-position: center 40px;
+	background-position: center 0px;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-color: #1A1B1F;
@@ -11,15 +11,6 @@ body {
 	line-height: 18px;
 	overflow-y: scroll;
 	min-width: 520px;
-}
-
-.navbar-collapse{
-	background-color: #1A1B1F;
-    border-radius: 25px;
-    margin: 5px;
-    padding: 10px;
-    height: 100%;	
-    overflow-y: scroll;
 }
 
 .icon {
@@ -84,20 +75,22 @@ body {
 	background-color: #252525;
 }
 
-.navbar{
+.navbar, .navbar-collapse{
 	position: fixed;
 	width: auto;
-	top: 0;
+	top: 0px;
 	right: 0;
 	left: 0;
 	z-index: 1000;
-	-webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.25);
-	box-shadow: 0 2px 3px rgba(0,0,0,0.25);
-	background-image: url( 'https://abs.twimg.com/a/1389141113/t1/img/twitter_web_sprite_bgs.png');
-    background-repeat: repeat-x;
-    background-position: 0 0;
+    border-radius: 25px;
     background-color: #252525;
     height: 40px;
+}
+
+@media(max-width: 767px) {
+	.navbar-collapse{
+		margin-top: 50px;
+	}
 }
 
 .search-input{
