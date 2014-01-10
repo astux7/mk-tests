@@ -7,7 +7,7 @@ body {
 	height: 100%;
 	font-family: "Helvetica Neue",Arial,sans-serif;
 	color: #333;
-	width: 865px;
+	width: 770px;
 	line-height: 18px;
 	overflow-y: scroll;
 	min-width: 520px;
@@ -87,10 +87,57 @@ body {
     height: 40px;
 }
 
-@media(max-width: 767px) {
+@media(max-width: 768px) {
+	
 	.navbar-collapse{
 		margin-top: 50px;
 	}
+
+}
+
+.container{
+	margin-top: 70px;
+	max-width: 760px;
+	height: inherit;
+}
+
+.dash-board{
+	width: 250px;
+	border-radius: 20px;
+	background-color: white;
+	opacity: 0.5;
+	height: inherit;
+	padding: 40px;
+	float: left;
+
+}
+
+.tweets{
+	width: 450px;
+	border-radius: 10px;
+	background-color: white;
+	opacity: 0.85;
+	height: inherit;
+	margin-left: 5px;
+	float: left;
+}
+
+.list-group-item img{
+	width: 62px;
+	height: 47px;
+}
+
+.list-group-item span{
+	width: 300px;
+}
+
+.tweets h2{
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 20px;
+	margin-top: 0px;
+	padding-top: 10px;
+	padding-left: 10px;
 }
 
 .search-input{
@@ -115,6 +162,7 @@ body {
 	box-shadow: none;
     color: #000000;
     font-size: 12px;
+    outline: none;
 }
 
 .twitter_icon {
@@ -130,6 +178,7 @@ body {
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 	font-size: 24px;
 	font-weight: bold;
+	float: left;
 	height: 21px;
 	line-height: 24px;
 	text-align: center;
