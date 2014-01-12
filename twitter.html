@@ -80,9 +80,12 @@
 				          View my profile page
 				      </small>
 			      </a>
-
-
 			    </div>
+			    <div class="row_md">
+				  <div class="col_md-4"><a href="#"><b>668</b><small class="metadata">TWEETS</small></a></div>
+				  <div class="col_md-4"><a href="#"><b>1112</b><small class="metadata">FOLLOWING</small></a></div>
+				  <div class="col_md-4"><a href="#"><b>4333</b><small class="metadata">FOLLOWERS</small></a></div>
+				</div>
 
 			      <div class="web-new-tweet">
 
@@ -132,10 +135,12 @@ function deselect() {
 }
 
 function addNewTweet(text){
+	if(text.lenght > 1 ){
 	$('ul.list-group').prepend(
        '<li class="list-group-item"><img src="http://goo.gl/15oUL3" alt="my tweet" class="img-rounded"><span>'+text+'</span></li>');
      $("#new_tweet_msg").val("");
-	
+	}
+	alert("Tweet is empty!");
 }
 
 $(function() {
@@ -205,10 +210,7 @@ function make_fake_tweets () {
 }
 
 $(window).scroll(function() {
-  // Modify to adjust trigger point. You may want to add content a little
-  // before the end of the page is reached. You may also want to make sure
-  // you can't retrigger the end of page condition while content is
-  // still loading.
+  
   if ($(window).scrollTop() == $(document).height() - $(window).height()) {
    loadMoreContent();
   }
