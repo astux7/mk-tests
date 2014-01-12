@@ -79,7 +79,18 @@
 				          View my profile page
 				      </small>
 			      </a>
+
+
 			    </div>
+
+			      <div class="web-new-tweet">
+
+			      	<input id="fake-tweet"  type="text" placeholder="Compose new tweet..." />
+			      	<div id="web-form-tweet">
+			      	<textarea maxlength="140" id="new_treed_expland" rows="4" cols="10" ></textarea>
+			      	<a href="#" id='web-send'>Tweet</a>
+			      </div>
+			  </div>
 
 	    	</div>
 	    	<div class="tweets">
@@ -121,7 +132,7 @@ function deselect() {
 function addNewTweet(text){
 	$('ul.list-group').prepend(
        '<li class="list-group-item"><img src="http://goo.gl/15oUL3" alt="my tweet" class="img-rounded"><span>'+text+'</span></li>');
-     $(new_tweet_msg).val("");
+     $("#new_tweet_msg").val("");
 	//console.log(text);
 }
 
@@ -141,19 +152,39 @@ $(function() {
 
     $(".close").on('click', function() {
         deselect();
-        $(new_tweet_msg).val("");
+        $("#new_tweet_msg").val("");
         return false;
     });
     $(".send").on('click', function() {
         deselect();
-        addNewTweet($(new_tweet_msg).val());
+        addNewTweet($("#new_tweet_msg").val());
         return false;
     });
+    
+     $("#web-send").on('click', function() {
+        addNewTweet($("#new_treed_expland").val());
+	    $('#web-form-tweet').hide();
+	    $("#new_treed_expland").val("")
+	    $("#fake-tweet").show();
+        return false;
+    });
+
+	$('#fake-tweet').on('click', function () {
+	    $(this).hide();
+	    $('#web-form-tweet').show();
+        $("#new_treed_expland").focus(); 
+	});
+
+
 });
 
 $.fn.slideFadeToggle = function(easing, callback) {
     return this.animate({ opacity: 'toggle', height: 'toggle' }, "fast", easing, callback);
 };
+
+
+
+
 
 </script>
 
