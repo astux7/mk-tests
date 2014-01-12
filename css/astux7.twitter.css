@@ -85,9 +85,18 @@ body {
 	right: 0;
 	left: 0;
 	z-index: 1000;
-    border-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
     background-color: #252525;
     height: 40px;
+}
+
+textarea {
+	width: 100%;
+}
+
+.navbar-collapse{
+	border-radius: 25px;
 }
 
 .container{
@@ -296,13 +305,6 @@ label {
 	}
 }
 
-@media(max-width: 768px) {
-	.container{
-		max-width: 100%;
-		width: 100%;
-	}
-	
-
 .messagepop {
 	margin-top: 15px;
 	position: absolute;
@@ -314,6 +316,12 @@ label {
     width: 70%;
     height: 50%;
 }
+
+@media(max-width: 768px) {
+	.container{
+		max-width: 100%;
+		width: 100%;
+	}
 
 
 	.navbar-collapse{
