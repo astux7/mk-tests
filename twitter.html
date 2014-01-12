@@ -57,7 +57,20 @@
 		           <li><a href="#">Sign out</a></li>
 		        </ul>
 		      </li>
-		      <li><a href="#"><span class="glyphicon glyphicon-pencil">&nbsp;</span></a></li>
+		      <li><a href="#" id="new_tweet"><span class="glyphicon glyphicon-pencil">&nbsp;</span></a>
+
+
+				<div class="messagepop pop">
+				    <form  id="new_tweet" >
+				          <p><label for="new_tweet_msg">New Tweet</label><textarea rows="6" maxlength="140" name="new_tweet_msg" id="new_tweet_msg" cols="35"></textarea></p>
+				        <p><a class="send" href="#">Publish tweet</a> or <a class="close" href="#">Cancel</a></p>
+				    </form>
+				</div>
+
+
+
+
+		      </li>
 		    </ul>
 		    
 		  </div><!-- /.navbar-collapse -->
@@ -65,8 +78,17 @@
 	<!-- NAV ends -->
 
 	    <div class="container">
-	    	<div class="dash-board">sfs
-	    		sdfsdfsdfs
+	    	<div class="mini-profile">
+	    		<div class="summary-profile">
+	    		  <a href="https://twitter.com/astux7">
+				      <img class="size32" src="https://pbs.twimg.com/profile_images/378800000266704146/1dd35ccdb66025064d4b21d1e3ad14d8_normal.jpeg" alt="" data-user-id="224928584">
+				      <b class="fullname">Asta B</b>
+				      <small class="metadata">
+				          View my profile page
+				      </small>
+			      </a>
+			    </div>
+
 	    	</div>
 	    	<div class="tweets">
 	    		<h2>Tweets</h2>
@@ -85,5 +107,53 @@
 	    </div>
 
   </div>
+
+<script type="text/javascript">
+function deselect() {
+    $(".pop").slideFadeToggle(function() { 
+        $("#new_tweet").removeClass("selected");
+    });    
+}
+
+function addNewTweet(text){
+	$('ul.list-group').prepend(
+       '<li class="list-group-item"><img src="http://goo.gl/15oUL3" alt="my tweet" class="img-rounded"><span>'+text+'</span></li>');
+     $(new_tweet_msg).val("");
+	//console.log(text);
+}
+
+$(function() {
+    $("#new_tweet").on('click', function() {
+        if($(this).hasClass("selected")) {
+            deselect();               
+        } else {
+            $(this).addClass("selected");
+            $(".pop").slideFadeToggle(function() { 
+                $("#new_tweet_msg").focus();
+            });
+        }
+        return false;
+    });
+
+    $(".close").on('click', function() {
+        deselect();
+        $(new_tweet_msg).val("");
+        return false;
+    });
+    $(".send").on('click', function() {
+        deselect();
+        addNewTweet($(new_tweet_msg).val());
+        return false;
+    });
+});
+
+$.fn.slideFadeToggle = function(easing, callback) {
+    return this.animate({ opacity: 'toggle', height: 'toggle' }, "fast", easing, callback);
+};
+
+</script>
+
+
+
   </body>
 </html>

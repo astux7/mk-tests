@@ -75,6 +75,9 @@ body {
 	background-color: #252525;
 }
 
+.glyphicon-pencil{
+	color: #2FC2EF;
+}
 .navbar, .navbar-collapse{
 	position: fixed;
 	width: auto;
@@ -89,20 +92,35 @@ body {
 
 .container{
 	margin-top: 4em;
-	max-width: 40em;
 	height: inherit;
 	float: left;
 }
 
-.dash-board{
+.mini-profile{
 	width: 20em;
-	border-radius: 2em;
+	border-radius: 1em;
 	background-color: white;
-	opacity: 0.5;
+	opacity: 0.95;
 	height: inherit;
-	padding: 4em;
+	padding: 0.54em;
 	float: left;
 
+}
+
+.mini-profile a{
+	display: block;
+
+}
+
+.mini-profile a:hover, .mini-profile a:focus{
+	color: #2FC2EF;
+	outline: none;
+	text-decoration: none;
+}
+
+.fullname:hover, .fullname:focus{
+  color: inherit;
+  text-decoration: underline;
 }
 
 .tweets{
@@ -215,16 +233,66 @@ a.glyphicon:hover, a.glyphicon:focus{
 	color: #fff;
 }
 
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+	background-color: #2FC2EF;
+	outline: none;
+}
+
+
+a.selected {
+  background-color:#1F75CC;
+  color:white;
+  z-index:100;
+}
+
+.messagepop {
+  background-color:#FFFFFF;
+  border:1px solid #999999;
+  cursor:default;
+  display:none;
+  margin-top: 15px;
+  position:absolute;
+  text-align:left;
+  width:394px;
+  z-index:50;
+  padding: 25px 25px 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 3px;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+
+.messagepop p, .messagepop.div {
+  border-bottom: 1px solid #EFEFEF;
+  margin: 8px 0;
+  padding-bottom: 8px;
+}
+
+
+
+@media(min-width: 768px) {
+	.tweets{
+		width: 400px;
+	}
+}
+
 @media(max-width: 768px) {
+	.container{
+		max-width: 100%;
+		width: 100%;
+	}
 	
 	.navbar-collapse{
 		margin-top: 50px;
 	}
-	.dash-board{
+	.mini-profile, li.dropdown, .nav li:first-child{
 		display: none;
 	}
 	.tweets{
-		width: 90% !important;
+		width: 95% !important;
 	}
 
 	body{
