@@ -87,38 +87,31 @@ body {
     height: 40px;
 }
 
-@media(max-width: 768px) {
-	
-	.navbar-collapse{
-		margin-top: 50px;
-	}
-
-}
-
 .container{
-	margin-top: 70px;
-	max-width: 760px;
+	margin-top: 4em;
+	max-width: 40em;
 	height: inherit;
+	float: left;
 }
 
 .dash-board{
-	width: 250px;
-	border-radius: 20px;
+	width: 20em;
+	border-radius: 2em;
 	background-color: white;
 	opacity: 0.5;
 	height: inherit;
-	padding: 40px;
+	padding: 4em;
 	float: left;
 
 }
 
 .tweets{
-	width: 450px;
-	border-radius: 10px;
+	width: 45em;
+	border-radius: 1em;
 	background-color: white;
 	opacity: 0.85;
 	height: inherit;
-	margin-left: 5px;
+	margin-left: 0.5em;
 	float: left;
 }
 
@@ -220,4 +213,28 @@ a.glyphicon:hover, a.glyphicon:focus{
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
 	color: #fff;
+}
+
+@media(max-width: 768px) {
+	
+	.navbar-collapse{
+		margin-top: 50px;
+	}
+	.dash-board{
+		display: none;
+	}
+	.tweets{
+		width: 90% !important;
+	}
+
+	body{
+		width: 100% !important;
+		min-width: 90%;
+	}
+
+	.list-group-item span{
+		width: 60%;
+
+    }
+
 }
