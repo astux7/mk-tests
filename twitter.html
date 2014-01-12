@@ -101,10 +101,13 @@
 	    		<h2>Tweets</h2>
 	    		<ul class="list-group">
 	    			<script>
-	    			    var iter = 10;
-	    			    while(iter--){
-                            document.write('<li class="list-group-item"><img src="http://goo.gl/15oUL3" alt="my tweet" class="img-rounded"><span>Apparently Wal-Mart filled two of our cars in a row with the wrong weight oil, or marked it wrong. Right weight is marked on the oil caps..</span></li>');
-                        }
+	    			function generateFakeTweet(){
+						return '<li class="list-group-item"><img src="http://goo.gl/15oUL3" alt="my tweet" class="img-rounded"><div class="div-text"><b class="fullname">Asta B  </b><span class="username">@astux7</span><br/>Apparently Wal-Mart filled two of our cars in a row with the wrong weight oil, or marked it wrong. Right weight is marked on the oil caps..</div></li>';
+					}
+	    			var iter = 10;
+	    			while(iter--){
+                        document.write(generateFakeTweet());
+                    }
 	    			</script>
 	             
 	    		</ul>
@@ -128,6 +131,7 @@
   </div>
 
 <script type="text/javascript">
+
 function deselect() {
     $(".pop").slideFadeToggle(function() { 
         $("#new_tweet").removeClass("selected");
@@ -135,12 +139,11 @@ function deselect() {
 }
 
 function addNewTweet(text){
-	if(text.lenght > 1 ){
+	console.log(text);
 	$('ul.list-group').prepend(
-       '<li class="list-group-item"><img src="http://goo.gl/15oUL3" alt="my tweet" class="img-rounded"><span>'+text+'</span></li>');
+       '<li class="list-group-item"><img src="http://goo.gl/15oUL3" alt="my tweet" class="img-rounded"><div class="div-text"><b class="fullname">Asta B  </b><span class="username">@astux7</span><br/>'+text+'</div></li>');
      $("#new_tweet_msg").val("");
-	}
-	alert("Tweet is empty!");
+	
 }
 
 $(function() {
@@ -164,15 +167,25 @@ $(function() {
     });
     $(".send").on('click', function() {
         deselect();
-        addNewTweet($("#new_tweet_msg").val());
+        var text_new = $("#new_tweet_msg").val();
+        if(text_new){
+        addNewTweet(text_new);
+    }else {
+    	alert("empty tweet!");
+    }
         return false;
     });
     
      $("#web-send").on('click', function() {
+     	var new_text = $("#new_treed_expland").val();
+     	if(new_text){
         addNewTweet($("#new_treed_expland").val());
 	    $('#web-form-tweet').hide();
 	    $("#new_treed_expland").val("")
-	    $("#fake-tweet").show();
+	    $("#fake-tweet").show();}
+	    else{
+	    	alert("Empty tweet!");
+	    }
         return false;
     });
 
@@ -204,7 +217,7 @@ function make_fake_tweets () {
   var str = "";
   var i = 20;
   while (i--){
-    str +='<li class="list-group-item"><img src="http://goo.gl/15oUL3" alt="my tweet" class="img-rounded"><span>I want to append a success message to my html document, but only for 2sec. After that the div should be deleted again.</span></li>';
+    str += generateFakeTweet();
   }
   return str;
 }

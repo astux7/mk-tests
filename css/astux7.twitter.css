@@ -149,10 +149,18 @@ textarea {
 .list-group-item img{
 	width: 62px;
 	height: 47px;
+	float: left;
+	margin-right: 5px;
 }
 
-.list-group-item span{
-	width: 300px;
+.list-group-item  {
+	clear:left;
+	
+}
+
+.list-group-item .div-text{
+	
+	text-align: left;
 }
 
 .tweets h2{
@@ -373,6 +381,11 @@ label {
 		width: 400px;
 	}
 
+	.list-group-item  {
+		width: 100%;
+
+    }
+
 	.messagepop {
 	left:10%;
 	top:20%;
@@ -416,6 +429,21 @@ label {
 	margin: 20px;
 }
 
+.username {
+	color: rgb(153, 153, 153);
+	cursor: auto;
+	display: inline;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 12px;
+	height: auto;
+	line-height: 18px;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	text-align: left;
+	width: auto;
+
+}
 input#fake-tweet{
 rgba(0, 0, 0, 0.0470588) 0px 1px 3px 0px inset, rgba(255, 255, 255, 0.0745098) 0px 1px 0px 0px;
 -webkit-line-break: after-white-space;
@@ -480,9 +508,5 @@ word-wrap: normal;
 		min-width: 90%;
 	}
 
-	.list-group-item span{
-		width: 60%;
-
-    }
 
 }
