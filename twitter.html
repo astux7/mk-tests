@@ -12,6 +12,7 @@
   </head> 
   <body>
   <div id="doc">
+
   	<!-- NAV begins -->
   	<nav class="navbar navbar-default" role="navigation">
 		  <!-- Brand and toggle get grouped for better mobile display -->
@@ -59,25 +60,16 @@
 		      </li>
 		      <li><a href="#" id="new_tweet"><span class="glyphicon glyphicon-pencil">&nbsp;</span></a>
 
-
-				<div class="messagepop pop">
-				    <form  id="new_tweet" >
-				          <p><label for="new_tweet_msg">New Tweet</label><textarea rows="6" maxlength="140" name="new_tweet_msg" id="new_tweet_msg" cols="35"></textarea></p>
-				        <p><a class="send" href="#">Publish tweet</a> or <a class="close" href="#">Cancel</a></p>
-				    </form>
-				</div>
-
-
-
-
 		      </li>
 		    </ul>
 		    
 		  </div><!-- /.navbar-collapse -->
 		</nav>
 	<!-- NAV ends -->
+       
 
 	    <div class="container">
+
 	    	<div class="mini-profile">
 	    		<div class="summary-profile">
 	    		  <a href="https://twitter.com/astux7">
@@ -106,6 +98,17 @@
 
 	    </div>
 
+
+
+<div class="messagepop pop">
+					<form  id="new_tweet" >
+					<p><label for="new_tweet_msg">New Tweet</label><textarea rows="6" maxlength="140" name="new_tweet_msg" id="new_tweet_msg" ></textarea></p>
+					<p><a class="send" href="#">Publish tweet</a> or <a class="close" href="#">Cancel</a></p>
+				 </form>
+		</div>
+
+
+
   </div>
 
 <script type="text/javascript">
@@ -124,6 +127,7 @@ function addNewTweet(text){
 
 $(function() {
     $("#new_tweet").on('click', function() {
+        $('button.navbar-toggle').trigger("click"); 
         if($(this).hasClass("selected")) {
             deselect();               
         } else {

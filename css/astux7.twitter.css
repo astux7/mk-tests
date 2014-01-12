@@ -245,17 +245,34 @@ a.selected {
   z-index:100;
 }
 
+a.close{
+font-size: inherit;
+font-weight: normal;
+line-height: 1;
+color: #428bca;
+opacity: 1.0;
+float: none;
+}
+
+.messagepop a:hover, .messagepop a:focus{
+	text-decoration: none;
+	color: #428bca;
+	opacity: 1.0;
+}
+
 .messagepop {
-  background-color:#FFFFFF;
-  border:1px solid #999999;
-  cursor:default;
-  display:none;
-  margin-top: 15px;
-  position:absolute;
-  text-align:left;
-  width:394px;
-  z-index:50;
-  padding: 25px 25px 20px;
+	background-color: #FFFFFF;
+	border: 1px solid #999999;
+	cursor: default;
+	display: none;
+	margin-top: 15px;
+	position: absolute;
+	padding: 25px 25px 20px;
+	border-radius: 15px;
+	left:50%;
+	top:50%;
+	opacity: 1.0;
+
 }
 
 label {
@@ -285,6 +302,20 @@ label {
 		width: 100%;
 	}
 	
+
+.messagepop {
+	margin-top: 15px;
+	position: absolute;
+	padding: 1.5em;
+	border-radius: 15px;
+	left:10%;
+	top:20%;
+	opacity: 1.0;
+    width: 70%;
+    height: 50%;
+}
+
+
 	.navbar-collapse{
 		margin-top: 50px;
 	}
@@ -292,7 +323,7 @@ label {
 		display: none;
 	}
 	.tweets{
-		width: 95% !important;
+		width: 85% !important;
 	}
 
 	body{
