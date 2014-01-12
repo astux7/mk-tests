@@ -19,17 +19,12 @@ body {
 	background-position: 0 0;
 	background-repeat: no-repeat;
 }
-.settings{
-	background-position: -160px -80px;
-	float: left;
-	width: 35px;
-    margin: -4px 6px 0 0;
-	background-image: url('https://abs.twimg.com/a/1389141113/t1/img/twitter_web_sprite_icons.png');
-}
+
 .settings_link .caret{
 	margin-left: -10px;
 	margin-top: 5px;
 }
+
 .metadata{
 	display: block;
 	white-space: nowrap;
@@ -44,15 +39,18 @@ body {
 	text-align: left;
     font-size: 12px;
 }
+
 .dropdown-menu ul li{
 	line-height: inherit;
 	line-height: 10px;
 }
+
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
 	color: #fff;
 	background-color: #2271a9;
 	font-weight: normal;
 }
+
 .settings_link{
 	display: block;
     height: 50px;
@@ -62,6 +60,7 @@ body {
 	color: #bbb;
 	text-shadow: 0 -1px 1px rgba(0,0,0,0.75);
 }
+
 #doc{
 	height: 100%;
 }
@@ -78,6 +77,7 @@ body {
 .glyphicon-pencil{
 	color: #2FC2EF;
 }
+
 .navbar, .navbar-collapse{
 	position: fixed;
 	width: auto;
@@ -113,7 +113,6 @@ textarea {
 	height: inherit;
 	padding: 0px;
 	float: left;
-
 }
 
 .summary-profile{
@@ -155,11 +154,9 @@ textarea {
 
 .list-group-item  {
 	clear:left;
-	
 }
 
 .list-group-item .div-text{
-	
 	text-align: left;
 }
 
@@ -231,7 +228,6 @@ a.glyphicon:hover, a.glyphicon:focus{
     color: #fff;
 }
 
-
 .form-group{
 	margin-top: 5px;
 }
@@ -258,7 +254,6 @@ a.glyphicon:hover, a.glyphicon:focus{
 	background-color: #2FC2EF;
 	outline: none;
 }
-
 
 a.selected {
   color:white;
@@ -445,45 +440,44 @@ label {
 
 }
 input#fake-tweet{
-rgba(0, 0, 0, 0.0470588) 0px 1px 3px 0px inset, rgba(255, 255, 255, 0.0745098) 0px 1px 0px 0px;
--webkit-line-break: after-white-space;
--webkit-transition-delay: 0s;
--webkit-transition-duration: 0.2s;
--webkit-transition-property: background;
--webkit-transition-timing-function: linear;
--webkit-user-modify: read-write;
-background-color: rgb(255, 255, 255);
-border-bottom-color: rgb(204, 204, 204);
-border-bottom-left-radius: 3px;
-border-bottom-right-radius: 3px;
-border-bottom-style: solid;
-border-bottom-width: 1px;
-border-image-outset: 0px;
-border-image-repeat: stretch;
-border-image-slice: 100%;
-border-image-source: none;
-border-image-width: 1;
-border-left-color: rgb(204, 204, 204);
-border-left-style: solid;
-border-left-width: 1px;
-border-right-color: rgb(204, 204, 204);
-border-right-style: solid;
-border-right-width: 1px;
-border-top-color: rgb(204, 204, 204);
-border-top-left-radius: 3px;
-border-top-right-radius: 3px;
-border-top-style: solid;
-border-top-width: 1px;
-box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 3px 0px inset, rgba(255, 255, 255, 0.0745098) 0px 1px 0px 0px;
-color: rgb(170, 170, 170);
-display: block;
-font-family: 'Helvetica Neue', Arial, sans-serif;
-font-size: 13px;
-height: 19px;
-padding: 14px;
-width: 258px;
-word-wrap: normal;
-
+	rgba(0, 0, 0, 0.0470588) 0px 1px 3px 0px inset, rgba(255, 255, 255, 0.0745098) 0px 1px 0px 0px;
+	-webkit-line-break: after-white-space;
+	-webkit-transition-delay: 0s;
+	-webkit-transition-duration: 0.2s;
+	-webkit-transition-property: background;
+	-webkit-transition-timing-function: linear;
+	-webkit-user-modify: read-write;
+	background-color: rgb(255, 255, 255);
+	border-bottom-color: rgb(204, 204, 204);
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-image-outset: 0px;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-left-color: rgb(204, 204, 204);
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-color: rgb(204, 204, 204);
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-top-color: rgb(204, 204, 204);
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-top-style: solid;
+	border-top-width: 1px;
+	box-shadow: rgba(0, 0, 0, 0.0470588) 0px 1px 3px 0px inset, rgba(255, 255, 255, 0.0745098) 0px 1px 0px 0px;
+	color: rgb(170, 170, 170);
+	display: block;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 13px;
+	height: 19px;
+	padding: 14px;
+	width: 258px;
+	word-wrap: normal;
 }
 
 @media(max-width: 768px) {
@@ -491,7 +485,6 @@ word-wrap: normal;
 		max-width: 100%;
 		width: 100%;
 	}
-
 
 	.navbar-collapse{
 		margin-top: 50px;

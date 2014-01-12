@@ -148,6 +148,7 @@ function addNewTweet(text){
 
 $(function() {
     $("#new_tweet").on('click', function() {
+    	$("html, body").animate({ scrollTop: 0 }, 300);
         $('button.navbar-toggle').trigger("click"); 
         if($(this).hasClass("selected")) {
             deselect();               
