@@ -303,6 +303,11 @@ label {
 	.tweets{
 		width: 400px;
 	}
+
+	.messagepop {
+	left:10%;
+	top:20%;
+}
 }
 
 .messagepop {
