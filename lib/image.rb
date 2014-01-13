@@ -1,6 +1,8 @@
 require_relative 'pixel'
 require_relative 'error_handler'
 
+
+
 class Image
   
   include ErrorHandler
@@ -65,6 +67,7 @@ class Image
       coor = list.shift
       recursion_area_to_fill(coor[0],coor[1],color_old,color,list)
     end 
+    return
   end
 
   def update_list(x,y,color_old, color,list)
