@@ -27,8 +27,9 @@ $(function() {
 	}
 
     $("#new_tweet").on('click', function() {
-    	$("html, body").animate({ scrollTop: 0 }, 300);
-        $('button.navbar-toggle').trigger("click"); 
+    	  $("html, body").animate({ scrollTop: 0 }, 300);
+        if($(window).width()<768){
+        $('button.navbar-toggle').trigger("click"); }
         if($(this).hasClass("selected")) {
             deselect();               
         } else {
