@@ -13,6 +13,10 @@ module ErrorHandler
       R is defined as: Pixel (X,Y) belongs to R. 
       Any other pixel which is the same colour as (X,Y) and 
       shares a common side with any pixel in R also belongs to this region.\n
+      > B X Y C - Fill the regions Rs with the colour C. 
+      R is defined as: Pixels (X,Y) belongs to R. 
+      Any other pixels which is the same colour as (X,Y) and 
+      shares a common side with any pixels in R also belongs to this region.\n
       > S - Show the contents of the current image\n
       > R - Clear the console\n
       > X - Terminate the session\n",
