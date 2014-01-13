@@ -33,7 +33,7 @@ class Image
     coordinates = prepare_horizontal_line(params[0], params[1], params[2])
     colored_pixels_by_coordinates(coordinates, color)
   end
-  #select area R to fill pixels with color
+  #select areas R to fill pixels with color  === !! fixed to area_to_fill
   def selected_area_to_fill(x, y, color)
     coordinates = check_area_parameters(x, y, color)
     full_array = prepare_area_to_fill(coordinates[0], coordinates[1], color)
@@ -50,6 +50,35 @@ class Image
     @pixels.each{|px| output += px.x % @m_columns == 0 ? px.color + "\n" : px.color }
     output
   end
+
+    #select area R to fill pixels with color
+  def area_to_fill(x, y, color)
+    coordinates = check_area_parameters(x, y, color)
+    color_old = find_pixel_color(coordinates[0], coordinates[1]) 
+    recursion_area_to_fill(coordinates[0], coordinates[1], color_old, color, [])
+  end
+
+  def recursion_area_to_fill(x,y,color_old, color,list)
+    
+    list = update_list(x,y,color_old, color,list)
+    if !list.empty?
+      coor = list.shift
+      recursion_area_to_fill(coor[0],coor[1],color_old,color,list)
+    end 
+  end
+
+  def update_list(x,y,color_old, color,list)
+    neighbors = [[x,y-1],[x-1,y],[x+1,y],[x,y+1]]
+    neighbors.each{|px|
+      index = find_pixel_index(px[0], px[1])
+      if index!= nil && @pixels[index].color == color_old
+        list <<  [@pixels[index].x, @pixels[index].y]
+        @pixels[index].color = color;
+      end
+    }
+    list
+  end
+
  #============================================================================= 
   #Vertical coordinates line draw
   def prepare_vertical_line(x1, x2, x3)

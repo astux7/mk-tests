@@ -112,10 +112,18 @@ describe Image do
     img.create_image(5, 6, 'O')
     img.colored_pixel(2,3,'A')
     expect(img.inspect).to eq("OOOOO\nOOOOO\nOAOOO\nOOOOO\nOOOOO\nOOOOO\n")
-    img.selected_area_to_fill(3,3,'J')
+    img.area_to_fill(3,3,'J')
     img.draw_vertical_line(2,3,4,'W')
     img.draw_horizontal_line(3,4,2,'Z')
     expect(img.inspect).to eq("JJJJJ\nJJZZJ\nJWJJJ\nJWJJJ\nJJJJJ\nJJJJJ\n")
+  end 
+
+  it 'should colored area R with color P correct' do
+    img.create_image(5, 4, 'O')
+    arr = [[2, 2], [3, 2], [4, 2], [2 ,3], [3, 3], [4, 3], [2, 4], [3, 4], [4, 4]]
+    img.colored_pixels_by_coordinates(arr, 'U')
+    img.area_to_fill(1,2,'F')
+    expect(img.inspect).to eq("FFFFF\nFUUUF\nFUUUF\nFUUUF\n")
   end 
 
 end	

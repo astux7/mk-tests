@@ -28,7 +28,7 @@ class Editor
   end
 
   def command_exist?(command)
-    menu_comands = ["I","C","L","V","H","F","S","X","R"]
+    menu_comands = ["I","C","L","V","H","F","S","X","R","B"]
     option = command.split(' ')
     return menu_comands.any?{|letter| letter == option[0]} ? true : false
   end
@@ -60,7 +60,7 @@ class Editor
     case command[0]
         when "V", "H"
           return prepare_parameters(command, 5, 3)
-        when "F", "L"
+        when "F", "L","B"
           return prepare_parameters(command, 4, 2)
         when "I"
           return prepare_image_parameters(command)
@@ -90,6 +90,8 @@ class Editor
         when "H"
           @image.draw_horizontal_line(param[0], param[1], param[2], param[3]) if !param.empty?
         when "F"
+          @image.area_to_fill(param[0],param[1],param[2]) if !param.empty?
+        when "B"
           @image.selected_area_to_fill(param[0],param[1],param[2]) if !param.empty?
         when "S"
           print @image.inspect
