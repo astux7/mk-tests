@@ -293,16 +293,18 @@ def bottle_bottles(number)
 end
 
 def ninety_nine_bottles_of_beer
+	result = ""
 	99.downto(0) {|number|
 		 number2 = bottle_bottles(number)
 		 number1 = bottle_bottles(number-1)
 		 if number > 3 
-		 	puts "#{number2} of beer on the wall, #{number2} of beer\nTake one down and pass it around, #{number1} of beer on the wall."  
+		 	result += "#{number2} of beer on the wall, #{number2} of beer\nTake one down and pass it around, #{number1} of beer on the wall."  
 		 elsif number == 0
-			puts "No more bottles of beer on the wall, no more bottles of beer. \nGo to the store and buy some more, 99 bottles of beer on the wall." 
+			result += "No more bottles of beer on the wall, no more bottles of beer. \nGo to the store and buy some more, 99 bottles of beer on the wall." 
 		 else
-            puts  "#{number2} of beer on the wall, #{number2} of beer\nTake one down and pass it around, #{number1} of beer on the wall."  
+            result +=  "#{number2} of beer on the wall, #{number2} of beer\nTake one down and pass it around, #{number1} of beer on the wall."  
 		 end
-        puts
+        result += "\n"
     }
+    result
 end
