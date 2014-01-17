@@ -185,9 +185,7 @@ end
 # 'the lion the witch and the wardrobe' becomes
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
-    string.split(" ").map{|el| ["a","and","the"].include?(el) ? el : el.capitalize  }.join(" ")
-    string[0].uppercase
-    string
+    string.split(" ").map.with_index{|el,i| ["a","and","the"].include?(el) && i!=0 ? el : el.capitalize  }.join(" ")
 end
 
 # return true if a string contains any special characters
