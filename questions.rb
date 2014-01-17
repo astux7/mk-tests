@@ -299,9 +299,7 @@ def ninety_nine_bottles_of_beer
 	99.downto(0) {|number|
 		 number2 = bottle_bottles(number)
 		 number1 = bottle_bottles(number-1)
-		 if number > 3 
-		 	result += "#{number2} of beer on the wall, #{number2} of beer\nTake one down and pass it around, #{number1} of beer on the wall."  
-		 elsif number == 0
+		 if number == 0
 			result += "No more bottles of beer on the wall, no more bottles of beer. \nGo to the store and buy some more, 99 bottles of beer on the wall." 
 		 else
             result +=  "#{number2} of beer on the wall, #{number2} of beer\nTake one down and pass it around, #{number1} of beer on the wall."  
