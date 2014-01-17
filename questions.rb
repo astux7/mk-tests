@@ -269,13 +269,15 @@ end
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
+	fizz    = [nil, nil, "Fizz"].cycle
+	buzz    = [nil, nil, nil, nil, "Buzz"].cycle
+	numbers = 1..100
 	result = ""
-	 1.upto(100) {|number|
-		 result += 'fizzbuzz' if number % 5 == 0 && number % 3 == 0
-         result += 'fizz' if number % 5 != 0 && number % 3 == 0
-         result += 'buzz' if number % 5 == 0 && number % 3 != 0
-         result += number.to_s if number % 5 != 0 && number % 3 != 0 
-	}
+ 
+	numbers.zip(fizz, buzz) do |n, f, b|
+	  fizzbuzz = [f, b].join
+	  result += fizzbuzz.empty? ? n.to_s : fizzbuzz
+	end
 	result
 end
 
