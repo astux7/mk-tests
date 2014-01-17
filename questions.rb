@@ -97,7 +97,7 @@ end
 # turn an array into itself repeated twice. So [1, 2, 3]
 # becomes [1, 2, 3, 1, 2, 3]
 def double_array(array)
-	[array,array].flatten
+	[array*2].flatten
 end
 
 # convert a symbol into a string
@@ -243,7 +243,11 @@ end
 # e.g. january 1st, will next be a friday in 2016
 # return the day as a capitalized string like 'Friday'
 def your_birthday_is_on_a_friday_in_the_year(birthday)
-
+    year = birthday.to_a[5]
+    while Time.new(year,birthday.to_a[4],birthday.to_a[3]).strftime('%A') != "Friday" do
+        year+=1
+    end
+	year
 end
 
 # in a file, total the number of times words of different lengths
@@ -252,11 +256,13 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
-	# sum = 0
-	# File.open(file_path, 'r').each_line do |line|
-	#   sum += line.split(" ").count
-	# end
-	# sum
+	 words = Hash.new {}
+	 File.open(file_path, 'r').each_line do |line|
+	   line.split(/\W+/).each{|w|
+	   		 !words.has_key?(w.length) ? words[w.length]= 1 : words[w.length]+=1
+	   }
+	 end
+	 words
 end
 
 # implement fizzbuzz without modulo, i.e. the % method
