@@ -270,10 +270,10 @@ end
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
 	 1.upto(100) {|number|
-		 print 'fizzbuzz' if number % 5 == 0 && number%3 == 0
-         print 'fizz' if number % 5 != 0 && number%3 == 0
-         print 'buzz' if number % 5 == 0 && number%3 != 0
-         print number if number % 5 != 0 && number%3 != 0 
+		 puts 'fizzbuzz' if number % 5 == 0 && number%3 == 0
+         puts 'fizz' if number % 5 != 0 && number%3 == 0
+         puts 'buzz' if number % 5 == 0 && number%3 != 0
+         puts number if number % 5 != 0 && number%3 != 0 
 	}
 end
 
@@ -284,4 +284,12 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
+	99.downto(0) {|number|
+		 puts "#{number} bottles of beer on the wall,  bottles of beer"  if number > 0
+		 puts "Take one down and pass it around, #{number-1} bottles of beer on the wall." if number-1 != 1 && number-1 > 0
+         puts "Take one down and pass it around, #{number-1} bottle of beer on the wall." if number-1 == 1 
+         puts "Take one down and pass it around, no more bottles of beer on the wall." if number-1 == 0
+         puts  "No more bottles of beer on the wall, no more bottles of beer. \nGo to the store and buy some more, 99 bottles of beer on the wall." if number == 0
+    	 puts
+    }
 end
