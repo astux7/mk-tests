@@ -285,7 +285,8 @@ end
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
 	99.downto(0) {|number|
-		 puts "#{number} bottles of beer on the wall, #{number} bottles of beer"  if number > 0
+		 puts "#{number} bottles of beer on the wall, #{number} bottles of beer"  if number > 1
+		 puts "#{number} bottle of beer on the wall, #{number} bottle of beer"  if number == 1
 		 puts "Take one down and pass it around, #{number-1} bottles of beer on the wall." if number-1 != 1 && number-1 > 0
          puts "Take one down and pass it around, #{number-1} bottle of beer on the wall." if number-1 == 1 
          puts "Take one down and pass it around, no more bottles of beer on the wall." if number-1 == 0
