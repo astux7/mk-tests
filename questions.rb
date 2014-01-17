@@ -269,7 +269,12 @@ end
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
- 
+	 1.upto(100) {|number|
+		 print 'fizzbuzz' if number % 5 == 0 && number%3 == 0
+         print 'fizz' if number % 5 != 0 && number%3 == 0
+         print 'buzz' if number % 5 == 0 && number%3 != 0
+         print number if number % 5 != 0 && number%3 != 0 
+	}
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
