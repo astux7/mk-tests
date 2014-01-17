@@ -256,7 +256,7 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
-	 words = Hash.new {}
+	 words = Hash.new 
 	 File.open(file_path, 'r').each_line do |line|
 	   line.split(/\W+/).each{|w|
 	   		 !words.has_key?(w.length) ? words[w.length]= 1 : words[w.length]+=1
@@ -269,12 +269,14 @@ end
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
+	result = ""
 	 1.upto(100) {|number|
-		 puts 'fizzbuzz' if number % 5 == 0 && number%3 == 0
-         puts 'fizz' if number % 5 != 0 && number%3 == 0
-         puts 'buzz' if number % 5 == 0 && number%3 != 0
-         puts number if number % 5 != 0 && number%3 != 0 
+		 result += 'fizzbuzz' if number % 5 == 0 && number % 3 == 0
+         result += 'fizz' if number % 5 != 0 && number % 3 == 0
+         result += 'buzz' if number % 5 == 0 && number % 3 != 0
+         result += number.to_s if number % 5 != 0 && number % 3 != 0 
 	}
+	result
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
@@ -283,14 +285,24 @@ end
 # beer on the wall, and print 'no more bottles of beer on the wall'
 # at the end.
 # (there's no RSpec test for this one)
+
+def bottle_bottles(number)
+	return "#{number} bottles" if number > 1
+	return "#{number} bottle" if number == 1
+	return "no more bottles" if number == 0
+end
+
 def ninety_nine_bottles_of_beer
 	99.downto(0) {|number|
-		 puts "#{number} bottles of beer on the wall, #{number} bottles of beer"  if number > 1
-		 puts "#{number} bottle of beer on the wall, #{number} bottle of beer"  if number == 1
-		 puts "Take one down and pass it around, #{number-1} bottles of beer on the wall." if number-1 != 1 && number-1 > 0
-         puts "Take one down and pass it around, #{number-1} bottle of beer on the wall." if number-1 == 1 
-         puts "Take one down and pass it around, no more bottles of beer on the wall." if number-1 == 0
-         puts "No more bottles of beer on the wall, no more bottles of beer. \nGo to the store and buy some more, 99 bottles of beer on the wall." if number == 0
-    	 puts
+		 number2 = bottle_bottles(number)
+		 number1 = bottle_bottles(number-1)
+		 if number > 3 
+		 	puts "#{number2} of beer on the wall, #{number2} of beer\nTake one down and pass it around, #{number1} of beer on the wall."  
+		 elsif number == 0
+			puts "No more bottles of beer on the wall, no more bottles of beer. \nGo to the store and buy some more, 99 bottles of beer on the wall." 
+		 else
+            puts  "#{number2} of beer on the wall, #{number2} of beer\nTake one down and pass it around, #{number1} of beer on the wall."  
+		 end
+        puts
     }
 end
