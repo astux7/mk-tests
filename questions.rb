@@ -53,7 +53,7 @@ end
 # 'banana' becomes 'ban'. If the string is an odd number of letters
 # round up - so 'apple' becomes 'app'
 def get_first_half_of_string(string)
-   string[0...(string.size / 2).ceil]
+   string.length.even? ? string[0...(string.size / 2).ceil] : string[0..(string.size / 2).ceil]
 end
 
 # turn a positive integer into a negative integer. A negative integer
@@ -67,6 +67,7 @@ end
 # even numbers come first
 # so [1, 2, 3, 4, 5, 6] becomes [[2, 4, 6], [1, 3, 5]]
 def separate_array_into_even_and_odd_numbers(array)
+	[array.select{|el| el if el.even?}, array.select{|el| el if el.odd?}]
 end
 
 # count the numbers of elements in an element which are palindromes
@@ -74,6 +75,7 @@ end
 # e.g. 'bob'. So in the array ['bob', 'radar', 'eat'], there
 # are 2 palindromes (bob and radar), so the method should return 2
 def number_of_elements_that_are_palindromes(array)
+	array.inject(0){|sum,el| el == el.reverse ? sum+=1 : sum}
 end
 
 # return the shortest word in an array
@@ -106,7 +108,7 @@ end
 # get the average from an array, rounded to the nearest integer
 # so [10, 15, 25] should return 17
 def average_of_array(array)
-    return array.inject(0){|sum,el| sum += el}/array.count
+    (array.inject(0){|sum,el| sum += el}/array.count.to_f).ceil
 end
 
 # get all the elements in an array, up until the first element
@@ -114,7 +116,7 @@ end
 # [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
 # becomes [1, 3, 5, 4, 1, 2]
 def get_elements_until_greater_than_five(array)
-	array.map{|el| el if el <= 5}
+	array.inject([]){|new_arr, el| el <= 5 ? new_arr << el :  break }
 end
 
 # turn an array (with an even number of elements) into a hash, by
@@ -129,6 +131,7 @@ end
 # . e.g. the array ['cat', 'dog', 'fish'] becomes
 # ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
 def get_all_letters_in_array_of_words(array)
+	array.join().split('').sort
 end
 
 # swap the keys and values in a hash. e.g.
@@ -166,6 +169,7 @@ end
 # take a date and format it like dd/mm/yyyy, so Halloween 2013
 # becomes 31/10/2013
 def format_date_nicely(date)
+	date.strftime('%d/%m/%Y')
 end
 
 # get the domain name *without* the .com part, from an email address
@@ -180,12 +184,16 @@ end
 # 'the lion the witch and the wardrobe' becomes
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
+   # string.split(" ").map{|el| ["a","and","the"].include?(el) ? el : el.capitalize  }.join(" ")
+  #  string[0] = string[0].capitalize
+    
 end
 
 # return true if a string contains any special characters
 # where 'special character' means anything apart from the letters
 # a-z (uppercase and lower) or numbers
 def check_a_string_for_special_characters(string)
+   return !string.match(/[^a-zA-Z0-9]/).nil?
 end
 
 # get the upper limit of a range. e.g. for the range 1..20, you
@@ -197,7 +205,7 @@ end
 # should return true for a 3 dot range like 1...20, false for a 
 # normal 2 dot range
 def is_a_3_dot_range?(range)
-
+   return range == Range.new(0,range.last)? true : false
 
 end
 
@@ -224,6 +232,7 @@ end
 # the list of bank holidays is here:
 # https://www.gov.uk/bank-holidays
 def is_a_2014_bank_holiday?(date)
+   ["18/04/2014", "21/04/2014", "05/05/2014", "26/05/2014", "25/08/2014", "25/12/14", "26/12/14"].include?(date.strftime('%d/%m/%Y'))
 end
 
 # given your birthday this year, this method tells you
@@ -245,7 +254,7 @@ end
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
-
+ 
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
