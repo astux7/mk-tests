@@ -290,7 +290,7 @@ def ninety_nine_bottles_of_beer
 		 puts "Take one down and pass it around, #{number-1} bottles of beer on the wall." if number-1 != 1 && number-1 > 0
          puts "Take one down and pass it around, #{number-1} bottle of beer on the wall." if number-1 == 1 
          puts "Take one down and pass it around, no more bottles of beer on the wall." if number-1 == 0
-         puts  "No more bottles of beer on the wall, no more bottles of beer. \nGo to the store and buy some more, 99 bottles of beer on the wall." if number == 0
+         puts "No more bottles of beer on the wall, no more bottles of beer. \nGo to the store and buy some more, 99 bottles of beer on the wall." if number == 0
     	 puts
     }
 end
