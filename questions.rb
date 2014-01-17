@@ -46,7 +46,7 @@ end
 # sort an array of words by their last letter, e.g.
 # ['sky', 'puma', 'maker'] becomes ['puma', 'maker', 'sky']
 def array_sort_by_last_letter_of_word(array)
-   
+   array.sort{ |x,y| y.reverse <=> x.reverse }.reverse 
 end
 
 # cut strings in half, and return the first half, e.g.
@@ -116,7 +116,8 @@ end
 # [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
 # becomes [1, 3, 5, 4, 1, 2]
 def get_elements_until_greater_than_five(array)
-	array.inject([]){|new_arr, el| el <= 5 ? new_arr << el :  break }
+	stop = false
+	array.inject([]){|new_arr, el| el <= 5 && !stop ? new_arr << el :  stop = true; new_arr}
 end
 
 # turn an array (with an even number of elements) into a hash, by
@@ -175,7 +176,7 @@ end
 # get the domain name *without* the .com part, from an email address
 # so alex@makersacademy.com becomes makersacademy
 def get_domain_name_from_email_address(email)
-	email.match(/@[\w]+/i)
+    email.match(/@[\w]+/i)[0][1..-1]
 end
 
 # capitalize the first letter in each word of a string, 
@@ -184,9 +185,9 @@ end
 # 'the lion the witch and the wardrobe' becomes
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
-   # string.split(" ").map{|el| ["a","and","the"].include?(el) ? el : el.capitalize  }.join(" ")
-  #  string[0] = string[0].capitalize
-    
+    string.split(" ").map{|el| ["a","and","the"].include?(el) ? el : el.capitalize  }.join(" ")
+    string[0].uppercase
+    string
 end
 
 # return true if a string contains any special characters
@@ -216,7 +217,11 @@ end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
-
+	sum = 0
+	File.open(file_path, 'r').each_line do |line|
+	  sum += line.split(" ").count
+	end
+	sum
 end
 
 # --- tougher ones ---
@@ -240,6 +245,7 @@ end
 # e.g. january 1st, will next be a friday in 2016
 # return the day as a capitalized string like 'Friday'
 def your_birthday_is_on_a_friday_in_the_year(birthday)
+
 end
 
 # in a file, total the number of times words of different lengths
@@ -248,6 +254,11 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
+	# sum = 0
+	# File.open(file_path, 'r').each_line do |line|
+	#   sum += line.split(" ").count
+	# end
+	# sum
 end
 
 # implement fizzbuzz without modulo, i.e. the % method
