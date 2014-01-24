@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create params[:post].permit(:title, :content)
     @post.user = current_user
+    #@post.votes.up.by_type(current_user)
     if @post.save
       redirect_to posts_path
     else
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find params[:id]
+
   end
 
   def edit 
@@ -32,6 +34,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @posts = @posts.sort_by{|post|
+      Vote.where('upvote = 1 AND post_id = ?', post.id ).count - Vote.where('downvote = 1 AND post_id = ?', post.id ).count
+    }.reverse!
     render 'index'
   end
 

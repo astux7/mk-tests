@@ -27,8 +27,12 @@
         <td><%= link_to post.id, post_path(post) %></td>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
-        <td><%=l post.created_at %></td>
+        <td><%= post.created_at %></td>
         <td>
+          <a href="<%= new_post_vote_path(post)%>?upvote=1">up</a>
+          <%= up_rating post %>
+          <a href="<%= new_post_vote_path(post)%>?downvote=1">down</a>
+           <%= down_rating post %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_post_path(post), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

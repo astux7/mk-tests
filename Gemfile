@@ -40,8 +40,6 @@ gem 'devise'
 #for test prepare not to repeat
 gem 'factory_girl_rails', "~> 4.0"
 
-#for voting 
-gem 'acts_as_votable', '~> 0.8.0'
 
 #for css
 gem "twitter-bootstrap-rails", github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'

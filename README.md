@@ -51,5 +51,10 @@
 >rails g bootstrap:layout application --force
 
 >rails g bootstrap:themed posts
- 
+
+>bin/rails g migration AddUserIdToPosts user:belongs_to
+>bin/rake db:migrate
+>bin/rake db:migrate RAILS_ENV=test 
+
+>bin/rails g controller votes
 
