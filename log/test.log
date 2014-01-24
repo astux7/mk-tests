@@ -18,3 +18,449 @@ Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:15:45 +0000
 Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:17:44 +0000
   [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
   [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1m[0m
+  [1m[35m (3.3ms)[0m  select table_name from information_schema.views where table_schema = 'reddit_test'
+  [1m[36m (0.2ms)[0m  [1m[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:29:04 +0000
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1m[0m
+  [1m[35m (3.0ms)[0m  select table_name from information_schema.views where table_schema = 'reddit_test'
+  [1m[36m (0.1ms)[0m  [1m[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:30:03 +0000
+Processing by PostsController#new as HTML
+Completed 500 Internal Server Error in 32ms
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.1ms)[0m  [1m[0m
+  [1m[35m (2.8ms)[0m  select table_name from information_schema.views where table_schema = 'reddit_test'
+  [1m[36m (0.2ms)[0m  [1m[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:31:33 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 747ms (Views: 725.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1m[0m
+  [1m[35m (3.2ms)[0m  select table_name from information_schema.views where table_schema = 'reddit_test'
+  [1m[36m (0.1ms)[0m  [1m[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:41:50 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 39ms
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1m[0m
+  [1m[35m (3.6ms)[0m  select table_name from information_schema.views where table_schema = 'reddit_test'
+  [1m[36m (0.2ms)[0m  [1m[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:43:58 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (51.2ms)
+Completed 500 Internal Server Error in 83ms
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1m[0m
+  [1m[35m (2.9ms)[0m  select table_name from information_schema.views where table_schema = 'reddit_test'
+  [1m[36m (0.1ms)[0m  [1m[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:45:47 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (49.0ms)
+Completed 500 Internal Server Error in 84ms
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1m[0m
+  [1m[35m (2.5ms)[0m  select table_name from information_schema.views where table_schema = 'reddit_test'
+  [1m[36m (0.1ms)[0m  [1m[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:46:12 +0000
+Processing by PostsController#new as HTML
+Completed 500 Internal Server Error in 28ms
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (17.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (4.1ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140124114719)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (12.3ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "title" character varying(255), "content" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140124114719"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.6ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (5.2ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:48:05 +0000
+Processing by PostsController#new as HTML
+Completed 500 Internal Server Error in 26ms
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (4.0ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:48:21 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (53.2ms)
+Completed 500 Internal Server Error in 94ms
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (5.8ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:48:37 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (72.3ms)
+Completed 200 OK in 133ms (Views: 101.1ms | ActiveRecord: 3.2ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.0ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (6.3ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:49:31 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (61.6ms)
+Completed 200 OK in 110ms (Views: 83.1ms | ActiveRecord: 3.4ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.4ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (4.2ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:49:59 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (66.1ms)
+Completed 200 OK in 127ms (Views: 100.5ms | ActiveRecord: 3.7ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (3.8ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:50:59 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (69.5ms)
+Completed 200 OK in 120ms (Views: 91.9ms | ActiveRecord: 3.5ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (5.5ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:51:28 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (61.2ms)
+Completed 200 OK in 115ms (Views: 82.9ms | ActiveRecord: 3.7ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.1ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (4.7ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:52:02 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (60.5ms)
+Completed 200 OK in 107ms (Views: 80.4ms | ActiveRecord: 4.8ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.6ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (3.7ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:56:04 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (66.2ms)
+Completed 200 OK in 128ms (Views: 99.6ms | ActiveRecord: 3.0ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.5ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (4.5ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:56:33 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (65.3ms)
+Completed 200 OK in 126ms (Views: 100.4ms | ActiveRecord: 2.9ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.3ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (4.1ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:56:42 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (62.3ms)
+Completed 200 OK in 113ms (Views: 83.2ms | ActiveRecord: 4.5ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.8ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (5.8ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:58:02 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (63.3ms)
+Completed 200 OK in 118ms (Views: 84.9ms | ActiveRecord: 3.0ms)
+Started POST "/posts" for 127.0.0.1 at 2014-01-24 11:58:02 +0000
+  [1m[35m (0.4ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.6ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (5.6ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 12:00:29 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (63.1ms)
+Completed 200 OK in 127ms (Views: 95.3ms | ActiveRecord: 2.9ms)
+Started POST "/posts" for 127.0.0.1 at 2014-01-24 12:00:29 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"Amazing post", "content"=>"This is amazing post content"}, "commit"=>"Create Post"}
+Completed 500 Internal Server Error in 1ms
+  [1m[35m (0.4ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.4ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (5.1ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 12:01:14 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (58.8ms)
+Completed 200 OK in 114ms (Views: 80.9ms | ActiveRecord: 3.9ms)
+Started POST "/posts" for 127.0.0.1 at 2014-01-24 12:01:14 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"Amazing post", "content"=>"This is amazing post content"}, "commit"=>"Create Post"}
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "posts" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "This is amazing post content"], ["created_at", "2014-01-24 12:01:14.266520"], ["title", "Amazing post"], ["updated_at", "2014-01-24 12:01:14.266520"]]
+Redirected to http://www.example.com/posts
+Completed 302 Found in 9ms (ActiveRecord: 1.7ms)
+Started GET "/posts" for 127.0.0.1 at 2014-01-24 12:01:14 +0000
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (55.1ms)
+Completed 500 Internal Server Error in 58ms
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.8ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (6.1ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 12:02:37 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (58.6ms)
+Completed 200 OK in 111ms (Views: 79.9ms | ActiveRecord: 3.6ms)
+Started POST "/posts" for 127.0.0.1 at 2014-01-24 12:02:37 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"Amazing post", "content"=>"This is amazing post content"}, "commit"=>"Create Post"}
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "posts" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "This is amazing post content"], ["created_at", "2014-01-24 12:02:37.217505"], ["title", "Amazing post"], ["updated_at", "2014-01-24 12:02:37.217505"]]
+Redirected to http://www.example.com/posts
+Completed 302 Found in 9ms (ActiveRecord: 1.4ms)
+Started GET "/posts" for 127.0.0.1 at 2014-01-24 12:02:37 +0000
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 6ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.0ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (4.0ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 12:03:04 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (66.8ms)
+Completed 200 OK in 126ms (Views: 98.6ms | ActiveRecord: 3.1ms)
+Started POST "/posts" for 127.0.0.1 at 2014-01-24 12:03:04 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"Amazing post", "content"=>"This is amazing post content"}, "commit"=>"Create Post"}
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "posts" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "This is amazing post content"], ["created_at", "2014-01-24 12:03:04.625147"], ["title", "Amazing post"], ["updated_at", "2014-01-24 12:03:04.625147"]]
+Redirected to http://www.example.com/posts
+Completed 302 Found in 8ms (ActiveRecord: 1.5ms)
+Started GET "/posts" for 127.0.0.1 at 2014-01-24 12:03:04 +0000
+Processing by PostsController#index as HTML
+Completed 500 Internal Server Error in 5ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.2ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (4.1ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 12:03:18 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (56.8ms)
+Completed 200 OK in 100ms (Views: 73.6ms | ActiveRecord: 3.6ms)
+Started POST "/posts" for 127.0.0.1 at 2014-01-24 12:03:18 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"Amazing post", "content"=>"This is amazing post content"}, "commit"=>"Create Post"}
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "posts" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "This is amazing post content"], ["created_at", "2014-01-24 12:03:18.463895"], ["title", "Amazing post"], ["updated_at", "2014-01-24 12:03:18.463895"]]
+Redirected to http://www.example.com/posts
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+Started GET "/posts" for 127.0.0.1 at 2014-01-24 12:03:18 +0000
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 8ms
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.4ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (5.7ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 12:03:38 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (64.5ms)
+Completed 200 OK in 112ms (Views: 84.7ms | ActiveRecord: 4.1ms)
+Started POST "/posts" for 127.0.0.1 at 2014-01-24 12:03:38 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"Amazing post", "content"=>"This is amazing post content"}, "commit"=>"Create Post"}
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "posts" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "This is amazing post content"], ["created_at", "2014-01-24 12:03:38.661198"], ["title", "Amazing post"], ["updated_at", "2014-01-24 12:03:38.661198"]]
+Redirected to http://www.example.com/posts
+Completed 302 Found in 9ms (ActiveRecord: 1.6ms)
+Started GET "/posts" for 127.0.0.1 at 2014-01-24 12:03:38 +0000
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "posts" DISABLE TRIGGER ALL
+  [1m[36m (2.1ms)[0m  [1mselect table_name from information_schema.views where table_schema = 'reddit_test'[0m
+  [1m[35m (4.9ms)[0m  TRUNCATE TABLE "posts" RESTART IDENTITY CASCADE;
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "posts" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 12:12:54 +0000
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (63.6ms)
+Completed 200 OK in 124ms (Views: 96.6ms | ActiveRecord: 3.8ms)
+Started POST "/posts" for 127.0.0.1 at 2014-01-24 12:12:54 +0000
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "post"=>{"title"=>"Amazing post", "content"=>"This is amazing post content"}, "commit"=>"Create Post"}
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "posts" ("content", "created_at", "title", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["content", "This is amazing post content"], ["created_at", "2014-01-24 12:12:54.415586"], ["title", "Amazing post"], ["updated_at", "2014-01-24 12:12:54.415586"]]
+Redirected to http://www.example.com/posts
+Completed 302 Found in 8ms (ActiveRecord: 1.2ms)
+Started GET "/posts" for 127.0.0.1 at 2014-01-24 12:12:54 +0000
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m

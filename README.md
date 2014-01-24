@@ -35,3 +35,8 @@
 
 >bin/rails g controller posts
 
+>bin/rails g model Post title:string content:text
+>bin/rake db:migrate
+>bin/rake db:migrate RAILS_EVN=test
+
+
