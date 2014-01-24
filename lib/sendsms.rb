@@ -13,6 +13,8 @@ module SendSMS
         :to => customer.phone, 
         :body => "Thank you #{customer.name} for your order no.#{order_id}, it will be delivered till #{time_deliver}"
       })
+       m =  @message.status
+       print m
     else
       puts "(: imagine message is sent :) "
     end

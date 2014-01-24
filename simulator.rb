@@ -8,11 +8,11 @@ dish1 = Dish.new("pizza",7.0,"main")
 dish2 = Dish.new("lazzania",9.0,"main")
 dishes = [dish1,dish2]
 takeaway = Takeaway.new(dishes)
-customer = Customer.new(1,"Asta","99","my adddresss")
+customer = Customer.new(1,"Asta","07718172778","my adddresss")
 begin
   customer.validate_phone(customer.phone)
 rescue RuntimeError 
-	print "\nnot valid phone\n"
+	print "\n not valid phone\n"
 end
 takeaway.add_customers(customer)
 #if exist customer find customer
