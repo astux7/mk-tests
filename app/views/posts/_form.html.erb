@@ -1,31 +1,20 @@
+<%= form_for @post, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :content, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :content, :class => 'text_field' %>
+    </div>
+  </div>
 
-
-<%= form_for @posts, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'text_field' %>
-    </div>
-  </div>
- 
- 
-  <div class="control-group">
-    <%= f.label :image_url, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :image_url, :class => 'text_field' %>
-    </div>
-  </div>
-  
-<hr>
   
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            restaurants_path, :class => 'btn btn-default' %>
+            posts_path, :class => 'btn btn-default' %>
  
 <% end %>
