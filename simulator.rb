@@ -1,3 +1,4 @@
+# This is essentially an integration test. You could have written it as a part of the test suite
 require_relative 'local.config'
 require_relative "./lib/takeaway"
 require_relative "./lib/dish"

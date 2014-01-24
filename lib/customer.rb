@@ -1,3 +1,4 @@
+# This class wasn't required but well done for including it
 class Customer
   def initialize(id,name,phone,address)
     @phone = phone
@@ -10,6 +11,6 @@ class Customer
   def validate_phone(phone)
     phone_digits = /\d{11}/
     raise "not valid phone!!" unless phone_digits.match(phone)
-    puts "\neverything looks ok with phone number" 
+    # same as in task1: remove all puts() calls before committing the code    
   end
 end 

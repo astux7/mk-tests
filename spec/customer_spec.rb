@@ -1,3 +1,5 @@
+# Overall, you've got a pretty good test suite (but please don't print anything there)
+
 require_relative "../lib/customer"
 
 describe Customer do 

@@ -6,7 +6,7 @@ class Order
     @customer_id = customer_id
     @selected_dishes = []
     @total = 0
-    @status = "inprogress"
+    @status = :in_progress # use symbols for things like @status
     @noticed = false
   end
   
@@ -14,14 +14,12 @@ class Order
     @selected_dishes << [dish, quantity]
   end
 
-  def status=(value)
-    @status = value
-  end
+  # You don't need this, you already have attr_accessor for :status
   
   def total
     @total = 0
-    @selected_dishes.each{|item|
-      @total += item[1].to_i * item[0].price
+    @selected_dishes.each{|item| # inject?
+      @total += item.last.to_i * item.first.price
     }
     @total
   end
@@ -31,13 +29,17 @@ class Order
     @noticed = noticed
   end
 
+  # a better name would be inspect()
+  # The methods inspect() and to_s() are specifically
+  # meant to be overridden to provide a better textual
+  # representation of the object
   def my_order_show
     list_order = "Your choice:\n"
-    @selected_dishes.each{|colection|
+    @selected_dishes.each do |colection|
       list_order+=" #{colection[1]} x #{colection[0].title}   => £#{colection[1]*colection[0].price}\n"
-    }
+    end
     list_order+="\n_______\n"
     list_order+="Total: £"+total.to_s
-    print list_order
+    print list_order # don't print stuff in the code :)
   end
 end
