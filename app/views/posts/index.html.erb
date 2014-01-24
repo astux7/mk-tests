@@ -1,9 +1,9 @@
 
-    <% if @posts.none? %>
-      No restaurants yet!
-    <% end %>
-    <% @posts.each do |post| %>
-    <%= post.title %>
-        <%= truncate post.content, length: 140 %>
+<% if @posts.none? %>
+No Posts yet!
+<% end %>
+<% @posts.each do |post| %>
+<%= post.title %>
+<%= truncate post.content, length: 140 %>
 
-        <% end %>
+<% end %>

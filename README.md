@@ -40,3 +40,25 @@
 >bin/rake db:migrate RAILS_EVN=test
 
 
+Here's how to upgrade:
+
+  bundle config --delete bin    # Turn off Bundler's stub generator
+  rake rails:update:bin         # Use the new Rails 4 executables
+  git add bin                   # Add bin/ to source control
+
+You may need to remove bin/ from your .gitignore as well.
+
+When you install a gem whose executable you want to use in your app,
+generate it and add it to source control:
+
+  bundle binstubs some-gem-name
+  git add bin/new-executable
+
+
+
+>rails generate divise:install
+>rails g devise user
+>bin/rake db:migrate
+
+>bin/rake db:migrate RAILS_ENV=test
+

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'Post Creation' do
+
   it 'should create a Post' do
     visit '/posts/new'
    # raise page.html
@@ -10,4 +11,6 @@ describe 'Post Creation' do
     expect(current_path).to eq '/posts'
     expect(page).to have_content 'Amazing post'
   end
+  
+
 end
