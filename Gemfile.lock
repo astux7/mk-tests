@@ -38,6 +38,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_votable (0.8.0)
     arel (5.0.0)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
@@ -165,6 +166,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_votable (~> 0.8.0)
   capybara
   coffee-rails (~> 4.0.0)
   database_cleaner

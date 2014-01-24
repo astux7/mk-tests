@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create params[:post].permit(:title, :content)
+    @post.user = current_user
     if @post.save
       redirect_to posts_path
     else
