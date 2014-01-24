@@ -19,3 +19,19 @@
 <li>Implement a 'hotness' - which combines points and newness. E.g. a post that gets 10 points in 10 min is 'hotter' than a post that gets 15 points in an hour.</li>
 </ol>
 
+<h4> the commands were using in this project</h4>
+
+>rails new reddit -d postgresql -T
+
+>bin/rake rails:update:bin
+
+>bin/rake db:create
+>bin/rake db:migrate
+
+>bundle
+>bin/rails generate rspec:install
+
+>bin/rake routes
+
+>bin/rails g controller posts
+

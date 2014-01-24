@@ -8,3 +8,13 @@
 Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:15:45 +0000
   [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
   [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36m (0.2ms)[0m  [1m[0m
+  [1m[35m (2.9ms)[0m  select table_name from information_schema.views where table_schema = 'reddit_test'
+  [1m[36m (0.2ms)[0m  [1m[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Started GET "/posts/new" for 127.0.0.1 at 2014-01-24 11:17:44 +0000
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
