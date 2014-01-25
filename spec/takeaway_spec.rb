@@ -46,7 +46,7 @@ describe Takeaway do
 
   it 'should add order to orders list' do
           takeaway.move_to_orders(order) 
-    expect(takeaway.orders.count).to eq(1)
+     expect(takeaway.orders.count).to eq(1)
   end
 
   it 'should proceed grand demo of TAKEAWAY system' do
