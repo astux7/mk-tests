@@ -1,6 +1,15 @@
 class PostsController < ApplicationController
+   #to do this action only for owners of posts
+  before_action :fetch_user_post, only: [:edit, :update, :destroy]
+   #to sign in before these actions
+  before_action :authenticate_user!, only: [:new, :update]
   def new
     @post = Post.new
+  end
+
+  def fetch_user_post
+    # @post = Post.find_by(id: params[:id], user: current_user)
+    @post = current_user.posts.find(params[:id])
   end
 
   def create

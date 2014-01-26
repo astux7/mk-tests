@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :user
-  has_many :votes
+  validates :title, presence: true, length: { minimum: 5 , message: 'Too short'}, uniqueness: true
+  validates :content, presence: true
+ 
 end

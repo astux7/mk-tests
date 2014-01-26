@@ -29,17 +29,20 @@
         <td><%= post.content %></td>
         <td><%= post.created_at %></td>
         <td>
-          <a href="<%= new_post_vote_path(post)%>?upvote=1">up</a>
-          <%= up_rating post %>
-          <a href="<%= new_post_vote_path(post)%>?downvote=1">down</a>
-           <%= down_rating post %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <a class="up-vote" data-vote="<%= new_post_vote_path(post)%>?upvote=1" href="<%= new_post_vote_path(post)%>?upvote=1">up<span><%= up_rating post %></span></a>
+          
+          <a class="down-vote" data-vote="<%= new_post_vote_path(post)%>?downvote=1" href="<%= new_post_vote_path(post)%>?downvote=1">down<span><%= down_rating post %></span></a>
+           
+            <% if post.user == current_user %>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_post_path(post), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       post_path(post),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
+            <% end %>
+          
        
         </td>
          

@@ -58,3 +58,12 @@
 
 >bin/rails g controller votes
 
+#bootstrap for css js
+#app/assets dir sit css and js get loaded by abc
+#add Gem in Gemfile and do
+>bin/rails g bootstrap:install static
+
+#generate application layout - rename old
+>bin/rails g bootstrap:layout application
+#generate models like reviews or restaurant
+>bin/rails g bootstrap:themed [RESOURCE_NAME]
